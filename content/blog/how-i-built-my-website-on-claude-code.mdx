@@ -1,0 +1,75 @@
+---
+title: "How I built my website on Claude Code"
+description: "How I built rudolfsfreibergs.com in two days for €34 total, with no monthly fees — using Claude Code, Next.js, and Formspree instead of a database."
+date: "2026-05-23"
+tags: ["AI"]
+author: "Rudolfs Freibergs"
+cover: "/images/blog/website-structure-3.jpg"
+---
+
+I wanted a site that belonged entirely to me. One that didn't require an unearned monthly allowance to stay alive.
+
+I built rudolfsfreibergs.com in two days using Claude Code in Visual Studio.
+
+The final bill? €12 for the domain purchase and a one-time €22 for a Claude Pro subscription. Total: €34. No monthly infrastructure fees. No recurring software subscriptions.
+
+Here is exactly how I traded complex engineering for a simple setup, and how you can do the same.
+
+## The design direction
+
+An LLM is an echo chamber, not a mind reader. If you prompt Claude to "build a website with a database and a form," it will mirror the loudest engineering tutorials on the internet instead of looking for your actual constraints.
+
+Suddenly, your quiet corner of the internet requires €40 a month just to sit there.
+
+My constraints were simple: I needed multiple pages, deep photography layouts, an email newsletter capture, and a secure contact form.
+
+![Website structure diagram](/images/blog/website-structure-3.jpg)
+
+To map this out without getting lost in the code, I took two clean steps before opening the editor:
+
+- I gathered a small list of websites I liked to run research and define a clear design direction.
+- I created minimalist wireframes on Miro to simply show the user experience and structural layouts I wanted to implement.
+
+![Website wireframes](/images/blog/website-structure-2.jpg)
+
+This gave the AI strict boundaries. No guesswork allowed.
+
+## The step-by-step assembly
+
+Once the visual direction was clear, I didn't feed everything to Claude at once. I built the foundation before the walls.
+
+### Step 1: The layout
+
+I initialized the project and ordered Claude to set up a clean Next.js 14 App Router file directory. I forced it to use a rigid, editorial design system with an ink-and-paper palette: a pitch-black background (#0B0B0D), soft off-white text (#F4F3EE), and a single electric blue accent (#2F4CFF) for links.
+
+### Step 2: Global navigation
+
+I wanted a site with structural confidence, heavily inspired by clean text layouts. That meant a sticky navigation bar with absolutely no logos - just a pure, centered link row tracking my main pages: Home, About, Adventures, Work, Soulful experiences, Media, and Blog.
+
+### Step 3: Bypassing the monthly database cost
+
+The main reason personal websites become expensive is form handling. Standard implementation says you need a live database server to log entries.
+
+Instead, I used Formspree as an invisible backend proxy. It delivers every submission directly to my personal inbox without a live database running on my dime.
+
+I had Claude build native Next.js Route Handlers. The contact form submits to my own /api/contact endpoint, and the server securely forwards it to Formspree. By abstracting the database layer out of the architecture, the entire platform remains static. It can be hosted for free on Vercel, deployed straight from GitHub.
+
+## Living in the text editor
+
+The real shift happens after deployment. I do not have a heavy graphical content management system dashboard. There is no WordPress admin panel or Squarespace login to check.
+
+All website maintenance is handled through Visual Studio Code.
+
+If I want to change a line of copy, fix an image link, or publish a new reflection, I open the local files. If I need a structural change, I don't click around an interface; I ask Claude Code directly inside the project terminal to rewrite the file.
+
+It keeps the code light, the pages fast, and the monthly costs at exactly zero.
+
+## A practical insight
+
+If you are looking to build a digital home without inheriting an infrastructure mortgage, try this structural shift immediately:
+
+- Research existing sites to lock down your visual direction before writing code.
+- Map your pages simply on a digital whiteboard to protect the user experience.
+- Treat form collection as an endpoint task, not a database task.
+
+The text editor is the cleanest interface you will ever own. Keep the engineering invisible, and keep the bills non-existent.

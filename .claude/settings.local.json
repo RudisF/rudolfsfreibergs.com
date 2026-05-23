@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm run *)",
+      "PowerShell(New-Item *)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx tsc --noEmit 2>&1 | Select-Object -First 60)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx tsc --noEmit 2>&1)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx next build 2>&1 | Select-Object -Last 20)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx next build 2>&1 | Select-Object -Last 15)",
+      "Bash(magick -version)",
+      "Bash(where magick *)",
+      "Bash(where convert *)",
+      "Bash(python -c \"import PIL; print\\('PIL yes'\\)\")",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx tsc --noEmit 2>&1; \"EXIT: $LASTEXITCODE\")",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx tsc --noEmit 2>&1; \"TSC EXIT: $LASTEXITCODE\")",
+      "PowerShell(npm install *)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; npx next build 2>&1 | Select-Object -Last 45)",
+      "Bash(command -v chromium-cli)",
+      "Bash(command -v chrome)",
+      "Bash(command -v chromium)",
+      "Read(//c/Program Files \\(x86\\)/Microsoft/Edge/Application/**)",
+      "Read(//c/Program Files/Microsoft/Edge/Application/**)",
+      "Bash(rm -f .claude/skills/run-rudolfsfreibergs-com/screenshots/_test-home.png)",
+      "Bash(node .claude/skills/run-rudolfsfreibergs-com/driver.mjs all)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; node .claude\\\\skills\\\\run-rudolfsfreibergs-com\\\\driver.mjs smoke 2>$null; \"--- shot ---\"; node .claude\\\\skills\\\\run-rudolfsfreibergs-com\\\\driver.mjs shot /work /blog/how-i-built-my-website-on-claude-code 2>$null)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:APPDATA\\\\npm;$env:PATH\"; Set-Location \"C:\\\\Users\\\\Rudolfs\\\\Desktop\\\\Claude Code testing\\\\rudolfsfreibergs.com\"; node .claude\\\\skills\\\\run-rudolfsfreibergs-com\\\\driver.mjs all 2>$null; \"EXIT: $LASTEXITCODE\")",
+      "Bash(sort -k9)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

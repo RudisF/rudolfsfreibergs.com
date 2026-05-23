@@ -1,12 +1,40 @@
 import type { Metadata } from "next";
+import { adventures } from "@/content/adventures";
+import AdventureRow from "@/components/ui/AdventureRow";
+import TimelineRail from "@/components/adventures/TimelineRail";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = { title: "Adventures" };
 
 export default function AdventuresPage() {
+  const sorted = [...adventures].sort((a, b) => b.year - a.year);
+  const years = sorted.map((a) => a.year);
+
   return (
-    <section className="mx-auto max-w-content px-6 py-24">
-      <h1 className="font-serif text-4xl font-bold">Adventures</h1>
-      <p className="mt-4 text-stone">Coming soon.</p>
-    </section>
+    <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
+      <TimelineRail years={years} />
+
+      {/* Page intro */}
+      <section className="py-20 md:py-28">
+        <Eyebrow>Field notes</Eyebrow>
+        <h1
+          className="mt-4 font-serif leading-[1.05] text-ink"
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 500 }}
+        >
+          Where the map runs out
+        </h1>
+        <p className="mt-6 max-w-lg text-base leading-relaxed text-stone">
+          A reverse-chronological record of expeditions, crossings, and the honest
+          lessons each one left behind.
+        </p>
+      </section>
+
+      {/* Adventure rows */}
+      <div className="space-y-24 pb-28">
+        {sorted.map((adventure) => (
+          <AdventureRow key={adventure.slug} {...adventure} />
+        ))}
+      </div>
+    </div>
   );
 }

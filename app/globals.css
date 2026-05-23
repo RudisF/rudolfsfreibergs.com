@@ -11,3 +11,63 @@
     @apply font-sans antialiased;
   }
 }
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cloud-drift {
+  0%,
+  100% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+/* ── Animation utilities ──────────────────────────────────────────────────── */
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 600ms ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 200ms ease-out both;
+  }
+
+  .animate-cloud-drift {
+    animation: cloud-drift 15s linear infinite;
+  }
+}
+
+/* ── Reduced motion: disable all transforms ───────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: fade-in 300ms ease-out both;
+  }
+
+  .animate-cloud-drift {
+    animation: none;
+  }
+}

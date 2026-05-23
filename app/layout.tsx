@@ -3,6 +3,7 @@ import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ReducedMotionProvider } from "@/components/providers/ReducedMotionProvider";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rudolfsfreibergs.com"),
   title: {
     default: "Rudolfs Freibergs",
     template: "%s | Rudolfs Freibergs",
@@ -41,9 +43,11 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="flex min-h-screen flex-col">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ReducedMotionProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ReducedMotionProvider>
       </body>
     </html>
   );
