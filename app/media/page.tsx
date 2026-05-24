@@ -5,7 +5,11 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import MediaGallery from "@/components/media/MediaGallery";
 import { media } from "@/content/media";
 
-export const metadata: Metadata = { title: "Media" };
+export const metadata: Metadata = {
+  title: "Media",
+  description:
+    "Podcasts, webinars, lectures, awards, and press featuring Rudolfs Freibergs.",
+};
 
 export default function MediaPage({
   searchParams,

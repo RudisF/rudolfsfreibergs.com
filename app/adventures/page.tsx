@@ -4,7 +4,11 @@ import AdventureRow from "@/components/ui/AdventureRow";
 import TimelineRail from "@/components/adventures/TimelineRail";
 import Eyebrow from "@/components/ui/Eyebrow";
 
-export const metadata: Metadata = { title: "Adventures" };
+export const metadata: Metadata = {
+  title: "Adventures",
+  description:
+    "Field notes from the edges — two months and 160km through the Nepali Himalayas, soloing Mauritania's iron-ore train, and half a year in Peru.",
+};
 
 export default function AdventuresPage() {
   const sorted = [...adventures].sort((a, b) => b.year - a.year);

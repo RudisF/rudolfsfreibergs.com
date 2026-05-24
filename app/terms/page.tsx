@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal/LegalPage";
 
-export const metadata: Metadata = { title: "Terms of Service" };
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms of Service for rudolfsfreibergs.com.",
+};
 
 export default function TermsPage() {
   return (

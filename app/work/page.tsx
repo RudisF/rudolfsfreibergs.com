@@ -9,7 +9,11 @@ import Certifications from "@/components/work/Certifications";
 import TechStack from "@/components/work/TechStack";
 import { clients } from "@/content/stack";
 
-export const metadata: Metadata = { title: "Work" };
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "Eight years across B2B marketing, account management, go-to-market, and AI — treating marketing as a revenue engine rooted in data and strategic precision.",
+};
 
 export default function WorkPage() {
   return (

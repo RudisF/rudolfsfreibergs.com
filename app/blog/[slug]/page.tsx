@@ -69,8 +69,27 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const idx = all.findIndex((p) => p.slug === post.slug);
   const readNext = [...all.slice(idx + 1), ...all.slice(0, idx)].slice(0, 2);
 
+  const base = "https://www.rudolfsfreibergs.com";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Person", name: post.author },
+    url: `${base}/blog/${post.slug}`,
+    image: `${base}/blog/${post.slug}/og?title=${encodeURIComponent(
+      post.title,
+    )}&rt=${encodeURIComponent(post.readingTime)}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ReadingProgress />
 
       <Container className="py-16 md:py-24">

@@ -5,7 +5,11 @@ import ImagePlate from "@/components/ui/ImagePlate";
 import Eyebrow from "@/components/ui/Eyebrow";
 import AnchorRail from "@/components/about/AnchorRail";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Who Rudolfs Freibergs is: a traveler moving between technology and mountain passes, and the M-shaped philosophy of balancing high-stakes work with soulful practice.",
+};
 
 // ── identity card data ─────────────────────────────────────────────────────────
 
@@ -64,12 +68,12 @@ export default function AboutPage() {
 
           {/* Right: eyebrow + lede + body */}
           <div className="flex flex-col gap-5">
-            <p
+            <h1
               className="font-serif leading-snug text-ink"
               style={{ fontSize: "22px" }}
             >
               Man behind the stories
-            </p>
+            </h1>
 
             <div className="space-y-4 text-base leading-relaxed text-stone">
               <p>

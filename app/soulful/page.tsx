@@ -4,7 +4,11 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
 import FeatureRow from "@/components/ui/FeatureRow";
 
-export const metadata: Metadata = { title: "Soulful experiences" };
+export const metadata: Metadata = {
+  title: "Soulful experiences",
+  description:
+    "Sauna ceremonies, singing-bowl sound therapy, guided meditation, positive psychology, and core shamanism — a grounded counterweight to a fast digital world.",
+};
 
 const practices = [
   {

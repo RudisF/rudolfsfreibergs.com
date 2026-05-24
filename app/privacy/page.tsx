@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal/LegalPage";
 
-export const metadata: Metadata = { title: "Privacy Policy" };
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy Policy for rudolfsfreibergs.com.",
+};
 
 export default function PrivacyPage() {
   return (

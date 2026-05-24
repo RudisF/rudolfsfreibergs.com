@@ -3,7 +3,11 @@ import { Suspense } from "react";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Rudolfs Freibergs about speaking, corporate work, or just to say hi.",
+};
 
 const SOCIALS = [
   { label: "Instagram", href: "https://www.instagram.com/rudolfs_freibergs/" },
