@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
-import Button from "@/components/ui/Button";
 import FeatureRow from "@/components/ui/FeatureRow";
+import CtaBand from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
   title: "Soulful experiences",
@@ -81,26 +81,13 @@ export default function SoulfulPage() {
       </Container>
 
       {/* ── Practice with me CTA ──────────────────────────────────────── */}
-      <Container>
-        <section className="pb-32">
-          <div className="rounded-2xl bg-ink px-8 py-16 text-center md:px-16 md:py-20">
-            <h2
-              className="font-serif font-medium text-paper"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
-            >
-              Practice with me
-            </h2>
-            <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-stone">
-              Curious about a session, or just want to say hello? Reach out!
-            </p>
-            <div className="mt-8 flex justify-center">
-              <Button href="/contact?topic=just-say-hi" variant="primary" size="lg">
-                Say hi
-              </Button>
-            </div>
-          </div>
-        </section>
-      </Container>
+      <CtaBand
+        tone="ink"
+        heading="Practice with me"
+        subcopy="Curious about a session, or just want to say hello? Reach out!"
+        ctaLabel="Say hi"
+        href="/contact?topic=just-say-hi"
+      />
     </>
   );
 }

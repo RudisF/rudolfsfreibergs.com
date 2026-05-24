@@ -40,7 +40,7 @@ export default function FeatureRow({
     <article id={id} className={className}>
       {/* Band */}
       <div className={`mb-8 border-l-4 ${edge} bg-ink px-6 py-4`}>
-        <span className="font-serif text-paper" style={{ fontSize: "32px" }}>
+        <span className="font-serif text-paper" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}>
           {label}
         </span>
       </div>

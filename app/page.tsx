@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ImagePlate from "@/components/ui/ImagePlate";
 import SectionHeader from "@/components/ui/SectionHeader";
+import CtaBand from "@/components/ui/CtaBand";
 
 function s(i: number): CSSProperties {
   return { animationDelay: `${i * 80}ms` };
@@ -30,14 +31,14 @@ export default function HomePage() {
               It&apos;s about the journey, not the destination
             </h1>
 
-            <p className="animate-fade-up max-w-md text-base leading-relaxed text-stone" style={s(2)}>
+            <p className="animate-fade-up max-w-xl text-base leading-relaxed text-stone" style={s(2)}>
               A traveler with 8 years of experience across IT and marketing, I write to turn raw
               internal moments into human-first stories where readers finally feel understood.
             </p>
 
             <div className="animate-fade-up flex flex-wrap gap-4" style={s(3)}>
               <Button href="/contact" variant="primary">
-                Enquiries
+                Get in touch
               </Button>
               <Button href="/about" variant="ghost">
                 About Rudolfs
@@ -66,7 +67,7 @@ export default function HomePage() {
               </div>
 
               <p
-                className="animate-fade-up max-w-md text-base leading-relaxed text-stone"
+                className="animate-fade-up max-w-xl text-base leading-relaxed text-stone"
                 style={s(1)}
               >
                 The footage has been sitting on hard drives since 2017. Raw moments from the
@@ -135,24 +136,31 @@ export default function HomePage() {
                 />
               </div>
 
-              <p
-                className="animate-fade-up max-w-md text-base leading-relaxed text-stone"
+              <div
+                className="animate-fade-up max-w-xl space-y-4 text-base leading-relaxed text-stone"
                 style={s(2)}
               >
-                I spend my days navigating the high-demand, high-stress rhythms of corporate IT and
-                marketing accounts. It is an environment that constantly asks you to optimize for
-                output, numbers, and scale. To stay whole, I balance that intensity with quiet,
-                soulful experiences like sound therapies and traditional sauna ceremonies. This is
-                not a trendy wellness escape, it is about learning how to keep your feet on the
-                ground while your world moves at breakneck speed. I approach B2B marketing not as a
-                series of isolated creative campaigns, but as a core revenue engine rooted in data
-                and strategic precision. This high-level alignment allows me to aggressively capture
-                business expansion opportunities and build comprehensive Go-To-Market ecosystems.
-                The dual pillars of my M-shaped professional life allow me to bring deep focus to
-                business problems without burning out, using stillness to fuel creativity. I write
-                about this tension because I know what it feels like to chase ambition without
-                wanting to lose your soul in the process.
-              </p>
+                <p>
+                  I spend my days navigating the high-demand, high-stress rhythms of corporate IT
+                  and marketing accounts. It is an environment that constantly asks you to optimize
+                  for output, numbers, and scale. To stay whole, I balance that intensity with
+                  quiet, soulful experiences like sound therapies and traditional sauna ceremonies.
+                  This is not a trendy wellness escape, it is about learning how to keep your feet
+                  on the ground while your world moves at breakneck speed.
+                </p>
+                <p>
+                  I approach B2B marketing not as a series of isolated creative campaigns, but as a
+                  core revenue engine rooted in data and strategic precision. This high-level
+                  alignment allows me to aggressively capture business expansion opportunities and
+                  build comprehensive Go-To-Market ecosystems.
+                </p>
+                <p>
+                  The dual pillars of my M-shaped professional life allow me to bring deep focus to
+                  business problems without burning out, using stillness to fuel creativity. I
+                  write about this tension because I know what it feels like to chase ambition
+                  without wanting to lose your soul in the process.
+                </p>
+              </div>
 
               {/* CTA with diagonal accent rule behind it */}
               <div className="animate-fade-up relative mt-2 self-start" style={s(3)}>
@@ -169,6 +177,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Closing CTA ──────────────────────────────────────────────── */}
+      <CtaBand
+        heading="Let's work together"
+        subcopy="Enquiries for marketing and account management — or just say hello."
+        ctaLabel="Get in touch"
+        href="/contact"
+        tone="accent"
+      />
     </>
   );
 }

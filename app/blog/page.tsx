@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
+import CtaBand from "@/components/ui/CtaBand";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -32,7 +33,8 @@ export default function BlogIndex({
   const pagePosts = posts.slice(start, start + PAGE_SIZE);
 
   return (
-    <Container className="py-20 md:py-28">
+    <>
+      <Container className="py-20 md:py-28">
       <Eyebrow color="accent">Field notes</Eyebrow>
       <h1
         className="mt-4 font-serif leading-[1.05] text-ink"
@@ -103,6 +105,13 @@ export default function BlogIndex({
           )}
         </div>
       )}
-    </Container>
+      </Container>
+
+      <CtaBand
+        heading="Let's keep talking"
+        ctaLabel="Get in touch"
+        href="/contact"
+      />
+    </>
   );
 }

@@ -69,8 +69,8 @@ export default function AboutPage() {
           {/* Right: eyebrow + lede + body */}
           <div className="flex flex-col gap-5">
             <h1
-              className="font-serif leading-snug text-ink"
-              style={{ fontSize: "22px" }}
+              className="font-serif leading-[1.05] text-ink"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 500 }}
             >
               Man behind the stories
             </h1>

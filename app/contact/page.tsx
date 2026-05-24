@@ -27,7 +27,9 @@ export default function ContactPage({
         <h1 className="font-serif font-medium text-ink" style={{ fontSize: "56px" }}>
           Contact Rudolfs
         </h1>
-        <p className="mt-4 text-base text-stone">Send me a note.</p>
+        <p className="mt-4 text-base text-stone">
+          Send me a note — I usually reply within a couple of days.
+        </p>
       </div>
 
       {/* Form */}

@@ -3,6 +3,7 @@ import { adventures } from "@/content/adventures";
 import AdventureRow from "@/components/ui/AdventureRow";
 import TimelineRail from "@/components/adventures/TimelineRail";
 import Eyebrow from "@/components/ui/Eyebrow";
+import CtaBand from "@/components/ui/CtaBand";
 
 export const metadata: Metadata = {
   title: "Adventures",
@@ -15,8 +16,9 @@ export default function AdventuresPage() {
   const years = sorted.map((a) => a.year);
 
   return (
-    <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
-      <TimelineRail years={years} />
+    <>
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
+        <TimelineRail years={years} />
 
       {/* Page intro */}
       <section className="py-20 md:py-28">
@@ -39,6 +41,13 @@ export default function AdventuresPage() {
           <AdventureRow key={adventure.slug} {...adventure} />
         ))}
       </div>
-    </div>
+      </div>
+
+      <CtaBand
+        heading="Curious about the next one?"
+        ctaLabel="Get in touch"
+        href="/contact"
+      />
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/ui/Container";
+import CtaBand from "@/components/ui/CtaBand";
 import Eyebrow from "@/components/ui/Eyebrow";
 import WorkSubNav from "@/components/work/WorkSubNav";
 import WorkRow from "@/components/work/WorkRow";
@@ -77,25 +77,8 @@ export default function WorkPage() {
       <Certifications />
       <TechStack />
 
-      {/* Closing CTA — full-bleed accent band */}
-      <section className="bg-accent">
-        <Container className="py-20 text-center md:py-28">
-          <h2
-            className="font-serif font-medium text-paper"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
-          >
-            Want to talk?
-          </h2>
-          <div className="mt-8">
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-sm border border-paper px-8 font-sans text-sm font-medium text-paper transition-colors hover:bg-paper hover:text-accent"
-            >
-              Get in touch
-            </Link>
-          </div>
-        </Container>
-      </section>
+      {/* Closing CTA */}
+      <CtaBand heading="Want to talk?" ctaLabel="Get in touch" href="/contact" tone="accent" />
     </>
   );
 }
