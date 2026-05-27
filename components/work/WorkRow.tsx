@@ -46,7 +46,7 @@ export default function WorkRow({
 
           {/* Text */}
           <div className={`flex flex-col gap-6 ${textOrder}`}>
-            <span className="inline-flex self-start rounded-sm bg-ink px-3 py-1.5 font-mono text-xs font-medium uppercase tracking-widest text-paper">
+            <span className="inline-flex self-start rounded-sm bg-ink px-3 py-1.5 font-mono text-sm font-medium uppercase tracking-widest text-paper">
               {eyebrow}
             </span>
 

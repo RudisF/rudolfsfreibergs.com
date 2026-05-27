@@ -7,7 +7,7 @@ export default function TechStack() {
   return (
     <section id="stack" className="scroll-mt-32 border-t border-rule py-20 md:py-28">
       <Container>
-        <SectionHeader eyebrow="Tooling" title="The stack I work in" />
+        <SectionHeader title="The stack and communities I work with" />
 
         <div className="mt-10 grid grid-cols-3 gap-4 md:grid-cols-6">
           {stack.map((t) => (
