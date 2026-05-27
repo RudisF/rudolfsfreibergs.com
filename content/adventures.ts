@@ -19,7 +19,11 @@ export const adventures: Adventure[] = [
     slug: "nepal",
     subtitle: "The cost of keeping still",
     body: "Nepal cultivates a profound understanding that we do not actually live inside physical houses, but rather inside the intricate landscapes of our minds and hearts. To deepen this awareness within my own life, I spent valuable time studying meditation alongside global leaders spanning the worlds of politics, economics, and technology. Balancing this intense inner exploration with rigorous physical challenge, a close friend and I journeyed deep into the Himalayas to tackle the most demanding trek of our lives. Together, we conquered the legendary Three Passes loop, testing our resilience and expanding our boundaries across a grueling 160-kilometer mountain expedition.",
-    images: ["/images/adventures/Adventures_1.jpg"],
+    images: [
+      "/images/adventures/Adventures_1.jpg",
+      "/images/adventures/Nepal_2.jpg",
+      "/images/adventures/Nepal_3.jpg",
+    ],
     side: "right",
   },
   {
