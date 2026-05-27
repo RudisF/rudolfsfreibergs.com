@@ -41,7 +41,7 @@ const sampleAdventures = [
     slug: "nepal-preview",
     subtitle: "Into the Himalayas",
     body: "Placeholder body copy — a world-first traverse of the Yangtze River alongside explorer Ash Dykes. From Tibetan glaciers to the East China Sea.",
-    image: "/images/home/yangtze.jpg",
+    images: ["/images/home/yangtze.jpg"],
     side: "right" as const,
   },
   {
@@ -50,7 +50,7 @@ const sampleAdventures = [
     slug: "mauritania-preview",
     subtitle: "Crossing the Sahara",
     body: "Placeholder body copy — bringing expedition stories to audiences worldwide, from university halls to corporate summits.",
-    image: "/images/home/lecture.jpg",
+    images: ["/images/home/lecture.jpg"],
     side: "left" as const,
   },
 ];

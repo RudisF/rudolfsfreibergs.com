@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Disclosure from "@/components/adventures/Disclosure";
+import AdventureSlider from "@/components/adventures/AdventureSlider";
 
 export interface FeatureRowProps {
   /** Optional anchor id rendered on the <article> (used by the adventures timeline). */
@@ -12,6 +13,7 @@ export interface FeatureRowProps {
   title: string;
   body: string;
   image: string;
+  images?: string[];
   imageAlt?: string;
   side?: "left" | "right";
   extras?: {
@@ -28,6 +30,7 @@ export default function FeatureRow({
   title,
   body,
   image,
+  images,
   imageAlt,
   side = "right",
   extras,
@@ -53,14 +56,22 @@ export default function FeatureRow({
             imageFirst ? "md:order-1" : "md:order-2"
           }`}
         >
-          <Image
-            src={image}
-            alt={imageAlt || label}
-            fill
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover object-center"
-          />
+          {images && images.length > 0 ? (
+            <AdventureSlider
+              images={images}
+              alt={imageAlt || label}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          ) : (
+            <Image
+              src={image}
+              alt={imageAlt || label}
+              fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center"
+            />
+          )}
         </div>
 
         {/* Text block */}

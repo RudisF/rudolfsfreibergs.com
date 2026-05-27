@@ -6,7 +6,7 @@ export interface AdventureRowProps {
   slug: string;
   subtitle: string;
   body: string;
-  image: string;
+  images: string[];
   side?: "left" | "right";
   extras?: {
     photos: string[];
@@ -20,7 +20,7 @@ export default function AdventureRow({
   location,
   subtitle,
   body,
-  image,
+  images,
   side = "right",
   extras,
   className = "",
@@ -32,7 +32,8 @@ export default function AdventureRow({
       labelColor="accent"
       title={subtitle}
       body={body}
-      image={image}
+      image={images[0]}
+      images={images}
       imageAlt={`${location} ${year}`}
       side={side}
       extras={extras}
