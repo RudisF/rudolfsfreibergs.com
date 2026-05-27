@@ -76,15 +76,32 @@ export default function AboutPage() {
             </h1>
 
             <div className="space-y-4 text-base leading-relaxed text-stone">
+              <p>I build teams and spaces that help people breathe.</p>
               <p>
-                Placeholder body copy — replace with your actual bio. Describe who Rudolfs is,
-                where he&apos;s from, what drives him, and what makes his perspective on IT,
-                marketing, adventure travel, and soulful living worth reading.
+                On the surface, my work looks like two careers. I design marketing and account
+                management teams, and I run heat and sound therapy for people worn down by
+                high-intensity lives. To me it is one problem: removing noise so a person can
+                think clearly again.
               </p>
               <p>
-                A second paragraph can go here. Talk about the tension between high-performance
-                work environments and the need for grounding — the core thread that ties every
-                section of this site together.
+                We treat the body like a machine with a broken part. More apps, more sleep data,
+                more compliance. But a nervous system is not a pipeline. Your body eventually
+                screams the things your mouth refuses to say.
+              </p>
+              <p>
+                Whether I am rebuilding a sales process or putting someone in a sauna until their
+                shoulders finally drop, the objective is the same: clear the chaos, so what is in
+                front of you becomes visible.
+              </p>
+              <p>
+                Once a year, I leave the context behind. Nepal, Mauritania, the Amazon. Wandering
+                through places that do not care about you is one of the few reliable ways to build
+                conviction in the choices you make when you come home.
+              </p>
+              <p>
+                I am sharing notes on these rhythms. No formula. No tidy lessons. Just how
+                technical intensity and physical alignment can live in the same body without one
+                consuming the other.
               </p>
             </div>
           </div>
