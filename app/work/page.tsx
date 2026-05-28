@@ -48,7 +48,7 @@ export default function WorkPage() {
         id="account-management"
         eyebrow="Account Management"
         side="right"
-        image="/images/work/Work_4.JPG"
+        image="/images/work/Sweden_Executive_Roundtable.png.JPG"
         title="Relationships over transactions"
         body="I built an account management department from the ground up - scaled it to a global portfolio of 130+ accounts, The framework is high-touch, growth-focused, proactive. I believe in meaningful engagement - the kind that creates unforgettable, exciting moments and deepens over time into a trusted, long-term relationship."
         metric={{ value: "93", label: "Net Promoter Score (NPS)" }}
