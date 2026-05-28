@@ -18,6 +18,15 @@ export type MediaItem = {
 
 export const media: MediaItem[] = [
   {
+    id: "riga-tech-dinner-gtm",
+    title: "Riga Tech Dinner: AI, Marketing and BD",
+    source: "Meetup",
+    category: "Event",
+    year: 2026,
+    href: "https://www.meetup.com/devops-and-ai-latvia/events/314750297/",
+    image: "/images/media/Rudolfs_Freibergs_marketing.png",
+  },
+  {
     id: "mauritania-train-podcast",
     title: "Mauritānijas tuksneša vilcienu un ceļošanas filozofiju",
     source: "YouTube",
@@ -45,15 +54,6 @@ export const media: MediaItem[] = [
     year: 2023,
     href: "https://www.turiba.lv/storage/files/intervija-rudolfs-freibergs.pdf",
     image: "/images/media/Image_3.png",
-  },
-  {
-    id: "riga-tech-dinner-gtm",
-    title: "Riga Tech Dinner: AI, Marketing and BD",
-    source: "Meetup",
-    category: "Event",
-    year: 2026,
-    href: "https://www.meetup.com/devops-and-ai-latvia/events/314750297/",
-    image: "/images/media/Rudolfs_Freibergs_marketing.png",
   },
   {
     id: "peru-134-days-lecture",
