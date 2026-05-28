@@ -21,7 +21,7 @@ export const stack: Tool[] = [
   { name: "RevGenius", logo: "/images/stack/RevGenius_new.png" },
   { name: "FF", logo: "/images/stack/FF.webp" },
   { name: "B2B Marketing", logo: "/images/stack/b2b-marketing-vector-logo.png" },
-  { name: "SSE Riga", logo: "/images/stack/sse_riga_logo.png" },
+  { name: "SSE Riga", logo: "/images/stack/sse_riga_logo.svg" },
 ];
 
 export interface Client {
