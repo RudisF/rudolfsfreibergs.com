@@ -50,7 +50,7 @@ export default function HomePage() {
           z-10 — overlay  dark semi-transparent layer (adjust bg-black/35 opacity here)
           z-20 — text     all readable content
       */}
-      <section className="relative overflow-hidden min-h-[580px] md:min-h-[700px]">
+      <section className="relative overflow-hidden h-screen">
         {/* z-0: background video */}
         <HeroVideo src="/images/about/Hero_video/Rudolfsfreibergs.webm" />
 
