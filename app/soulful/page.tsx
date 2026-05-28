@@ -53,7 +53,7 @@ export default function SoulfulPage() {
     <>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <Container>
-        <section className="py-32">
+        <section className="pt-24 pb-10 md:pt-32 md:pb-12">
           <Eyebrow>Going inward</Eyebrow>
           <h1
             className="mt-4 max-w-3xl font-serif leading-[1.05] text-ink"

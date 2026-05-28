@@ -21,7 +21,7 @@ export default function WorkPage() {
       <WorkSubNav />
 
       {/* Hero */}
-      <Container className="py-20 md:py-28">
+      <Container className="pt-20 md:pt-28 pb-10 md:pb-12">
         <Eyebrow color="accent">What I do</Eyebrow>
         <h1
           className="mt-4 max-w-3xl font-serif leading-[1.05] text-ink"
