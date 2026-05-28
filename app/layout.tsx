@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = "https://www.rudolfsfreibergs.com";
 const SITE_DESCRIPTION =
-  "Rudolfs Freibergs - eight years across IT and marketing, expeditions from the Nepali Himalayas to Mauritania and Peru, and soulful practices like sauna and sound therapy. Honest writing on ambition, adventure, and staying grounded.";
+  "Stories and adventures from the edges of the map - Himalayan passes, the Sahara by rail, the Amazon. Plus sauna, sound, and the quiet in between.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,11 +46,13 @@ export const metadata: Metadata = {
     title: "Rudolfs Freibergs",
     description: SITE_DESCRIPTION,
     locale: "en_US",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Rudolfs Freibergs" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Rudolfs Freibergs",
     description: SITE_DESCRIPTION,
+    images: ["/og-image.png"],
   },
 };
 
