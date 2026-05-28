@@ -44,6 +44,7 @@ export default function AdventuresPage() {
 
       <CtaBand
         heading="Curious about the next one?"
+        subcopy="Reach out with any questions about the journey - or if you'd like me to plan or guide an adventure for you."
         ctaLabel="Get in touch"
         href="/contact"
       />
