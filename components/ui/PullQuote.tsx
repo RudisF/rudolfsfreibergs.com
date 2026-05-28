@@ -14,7 +14,7 @@ export default function PullQuote({ quote, attribution, className = "" }: PullQu
         {quote}
       </blockquote>
       {attribution && (
-        <figcaption className="mt-6 font-mono text-sm text-stone">— {attribution}</figcaption>
+        <figcaption className="mt-6 font-mono text-sm text-stone">- {attribution}</figcaption>
       )}
     </figure>
   );

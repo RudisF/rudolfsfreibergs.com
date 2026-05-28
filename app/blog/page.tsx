@@ -8,7 +8,7 @@ import { getAllPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Field notes — short, honest essays on ambition, adventure, technology, and staying grounded.",
+    "Field notes - short, honest essays on ambition, adventure, technology, and staying grounded.",
 };
 
 const PAGE_SIZE = 6;

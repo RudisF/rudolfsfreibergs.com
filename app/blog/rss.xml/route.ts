@@ -29,7 +29,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rudolfs Freibergs — Field notes</title>
+    <title>Rudolfs Freibergs - Field notes</title>
     <link>${SITE_URL}/blog</link>
     <description>Short, honest dispatches from between spreadsheets and mountain passes.</description>
     <language>en</language>

@@ -57,7 +57,7 @@ export const media: MediaItem[] = [
   },
   {
     id: "peru-134-days-lecture",
-    title: "Tālu no komforta zonas — 134 dienas Peru",
+    title: "Tālu no komforta zonas - 134 dienas Peru",
     source: "Turība University",
     category: "Event",
     year: 2019,

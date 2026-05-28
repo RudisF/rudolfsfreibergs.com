@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = "https://www.rudolfsfreibergs.com";
 const SITE_DESCRIPTION =
-  "Rudolfs Freibergs — eight years across IT and marketing, expeditions from the Nepali Himalayas to Mauritania and Peru, and soulful practices like sauna and sound therapy. Honest writing on ambition, adventure, and staying grounded.";
+  "Rudolfs Freibergs - eight years across IT and marketing, expeditions from the Nepali Himalayas to Mauritania and Peru, and soulful practices like sauna and sound therapy. Honest writing on ambition, adventure, and staying grounded.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

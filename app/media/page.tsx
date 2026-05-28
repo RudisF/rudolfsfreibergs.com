@@ -28,7 +28,7 @@ export default function MediaPage({
         Media
       </h1>
       <p className="mt-6 max-w-xl text-base leading-relaxed text-stone">
-        Podcasts, webinars, lectures, and press — a running record of conversations and
+        Podcasts, webinars, lectures, and press - a running record of conversations and
         appearances.
       </p>
 

@@ -50,7 +50,7 @@ export default function NewsletterForm() {
 
       {status === "error" && (
         <p className="text-xs text-red-400 sm:col-span-2">
-          Something went wrong — please try again.
+          Something went wrong - please try again.
         </p>
       )}
     </form>

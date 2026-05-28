@@ -16,7 +16,7 @@ const identities = [
     eyebrow: "Pushing boundaries",
     title: "Adventures",
     description:
-      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out — to clear my head and meet whoever I am when no one's watching.",
+      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out - to clear my head and meet whoever I am when no one's watching.",
     image: "/images/home/yangtze.jpg",
     href: "/adventures",
   },
@@ -103,12 +103,12 @@ export default function HomePage() {
               >
                 <p>
                   The destination has never been the point. The places get chosen by something
-                  quieter than logic — a feeling, a voice that says go there, and I trust it.
+                  quieter than logic - a feeling, a voice that says go there, and I trust it.
                 </p>
                 <p>
                   First footages has been sitting on hard drives since 2017. High passes in Nepal,
                   dust in Mauritania, deep trails in the Peruvian Amazon. I&apos;m editing years of
-                  movement into a YouTube series — slowly, because condensing chaos into a story
+                  movement into a YouTube series - slowly, because condensing chaos into a story
                   that respects your time takes restraint. The final cut isn&apos;t ready. The
                   channel is.
                 </p>
@@ -177,7 +177,7 @@ export default function HomePage() {
               >
                 <p>
                   My days run on the high-demand rhythms of corporate IT, B2B marketing and
-                  customer engagement — an environment that asks you to build a relationship,
+                  customer engagement - an environment that asks you to build a relationship,
                   optimise for output and scale. To stay whole, I balance that intensity with
                   quieter practices: sound therapy, traditional sauna ceremonies. Not a wellness
                   escape. A way to keep your feet on the ground while the world moves at breakneck

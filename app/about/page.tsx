@@ -19,7 +19,7 @@ const identities = [
     eyebrow: "Pushing boundaries",
     title: "Adventures",
     description:
-      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out — to clear my head and meet whoever I am when no one's watching.",
+      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out - to clear my head and meet whoever I am when no one's watching.",
     image: "/images/home/yangtze.jpg",
     href: "/adventures",
   },
@@ -78,7 +78,7 @@ export default function AboutPage() {
             <div className="space-y-4 text-base leading-relaxed text-stone">
               <p>I build teams and spaces that help people breathe.</p>
               <p>
-                On the surface, my work looks like two careers — marketing and account management
+                On the surface, my work looks like two careers - marketing and account management
                 teams, and heat and sound therapy for people worn down by high-intensity lives. To
                 me it&apos;s one problem: removing noise so a person can think clearly again.
               </p>
@@ -148,7 +148,7 @@ export default function AboutPage() {
               </p>
               <p>
                 The M-shape has more than one peak. Mine shows up clearly in how I balance the
-                professional and the internal. One peak sits in high-stakes execution — managing
+                professional and the internal. One peak sits in high-stakes execution - managing
                 accounts and marketing strategy. The other is anchored in sauna ceremonies, sound
                 therapy, meditation.
               </p>

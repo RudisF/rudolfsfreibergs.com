@@ -28,7 +28,7 @@ export default function ContactPage({
           Contact Rudolfs
         </h1>
         <p className="mt-4 text-base text-stone">
-          Send me a note — I usually reply within a couple of days.
+          Send me a note - I usually reply within a couple of days.
         </p>
       </div>
 
@@ -41,7 +41,7 @@ export default function ContactPage({
 
       {/* Elsewhere */}
       <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-stone">
-        Or find me elsewhere —{" "}
+        Or find me elsewhere -{" "}
         {SOCIALS.map((s, i) => (
           <span key={s.label}>
             <a

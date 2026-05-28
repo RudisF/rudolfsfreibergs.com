@@ -7,21 +7,21 @@ import CtaBand from "@/components/ui/CtaBand";
 export const metadata: Metadata = {
   title: "Soulful experiences",
   description:
-    "Sauna ceremonies, singing-bowl sound therapy, guided meditation, positive psychology, and core shamanism — a grounded counterweight to a fast digital world.",
+    "Sauna ceremonies, singing-bowl sound therapy, guided meditation, positive psychology, and core shamanism - a grounded counterweight to a fast digital world.",
 };
 
 const practices = [
   {
     label: "Sauna ceremonies",
     title: "Heat as a doorway",
-    body: "I've been in sauna culture since childhood — Latvian roots, then years exploring traditions from around the world to learn what actually does the work. My ceremonies weave that practice with mindfulness, sound therapy, singing bowls, and music selected one track at a time. The pairing of grounding heat and resonant sound is the engine: full-body release, a quieter mind, the kind of clarity you can't think your way into.",
+    body: "I've been in sauna culture since childhood - Latvian roots, then years exploring traditions from around the world to learn what actually does the work. My ceremonies weave that practice with mindfulness, sound therapy, singing bowls, and music selected one track at a time. The pairing of grounding heat and resonant sound is the engine: full-body release, a quieter mind, the kind of clarity you can't think your way into.",
     image: "/images/soulful/Soulful_experiences_1.jpg",
     side: "right",
   },
   {
     label: "Singing bowls",
     title: "Sound that resets the body",
-    body: "My sound therapy training comes directly from practitioners in Nepal. I learned how specific harmonic vibrations move through the body's energy centres — the chakras — to release what's been held there. The sessions reset the nervous system through pure sound. They work as a standalone practice, or layered into a sauna ceremony where heat and sound amplify each other.",
+    body: "My sound therapy training comes directly from practitioners in Nepal. I learned how specific harmonic vibrations move through the body's energy centres - the chakras - to release what's been held there. The sessions reset the nervous system through pure sound. They work as a standalone practice, or layered into a sauna ceremony where heat and sound amplify each other.",
     image: "/images/soulful/Soulful_experiences_2.png",
     side: "left",
   },
@@ -42,7 +42,7 @@ const practices = [
   {
     label: "Shamanism",
     title: "Older ways of seeing",
-    body: "I trained in core shamanism — the framework Michael Harner built from the universal principles behind humanity's oldest healing traditions, stripped of any single ethnic culture. The work is grounded in the 'shamanic journey,' a method that uses rhythmic drumming, not hallucinogens, to enter a shamanic state of consciousness. Theory, methodology, ethics.\n\nAll practices learned through the Foundation for Shamanic Studies.",
+    body: "I trained in core shamanism - the framework Michael Harner built from the universal principles behind humanity's oldest healing traditions, stripped of any single ethnic culture. The work is grounded in the 'shamanic journey,' a method that uses rhythmic drumming, not hallucinogens, to enter a shamanic state of consciousness. Theory, methodology, ethics.\n\nAll practices learned through the Foundation for Shamanic Studies.",
     image: "/images/soulful/Soulful_experiences_5.jpg",
     side: "right",
   },
@@ -65,7 +65,7 @@ export default function SoulfulPage() {
             className="mt-8 max-w-2xl font-serif italic text-ink"
             style={{ fontSize: "22px", lineHeight: 1.5 }}
           >
-            Sound baths, forest saunas, and the quiet between thoughts — a counterweight to the
+            Sound baths, forest saunas, and the quiet between thoughts - a counterweight to the
             speed of the digital world.
           </p>
         </section>

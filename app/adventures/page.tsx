@@ -8,7 +8,7 @@ import CtaBand from "@/components/ui/CtaBand";
 export const metadata: Metadata = {
   title: "Adventures",
   description:
-    "Field notes from the edges — two months and 160km through the Nepali Himalayas, soloing Mauritania's iron-ore train, and half a year in Peru.",
+    "Field notes from the edges - two months and 160km through the Nepali Himalayas, soloing Mauritania's iron-ore train, and half a year in Peru.",
 };
 
 export default function AdventuresPage() {

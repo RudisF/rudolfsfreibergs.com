@@ -57,13 +57,13 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
         setStatus("error");
         setErrorMsg(
           res.status >= 500
-            ? "Something went wrong on my end — please try again shortly."
+            ? "Something went wrong on my end - please try again shortly."
             : "Please double-check your details and try again.",
         );
       }
     } catch {
       setStatus("error");
-      setErrorMsg("Network error — please check your connection and try again.");
+      setErrorMsg("Network error - please check your connection and try again.");
     }
   }
 
@@ -91,7 +91,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
       <div className="rounded-2xl border border-rule p-8 md:p-10">
         <h2 className="font-serif text-4xl font-medium text-ink">Message received.</h2>
         <p className="mt-3 text-base leading-relaxed text-stone">
-          Thanks for reaching out — I&apos;ll get back to you soon.
+          Thanks for reaching out - I&apos;ll get back to you soon.
         </p>
 
         <label className="mt-8 flex cursor-pointer items-center gap-3 text-sm text-ink">
@@ -106,10 +106,10 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
         </label>
 
         {subStatus === "success" && (
-          <p className="mt-3 text-sm text-stone">You&apos;re on the list — no noise, just field notes.</p>
+          <p className="mt-3 text-sm text-stone">You&apos;re on the list - no noise, just field notes.</p>
         )}
         {subStatus === "error" && (
-          <p className="mt-3 text-sm text-red-600">Couldn&apos;t subscribe — please try again.</p>
+          <p className="mt-3 text-sm text-red-600">Couldn&apos;t subscribe - please try again.</p>
         )}
       </div>
     );
