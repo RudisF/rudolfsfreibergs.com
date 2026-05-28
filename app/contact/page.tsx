@@ -28,7 +28,7 @@ export default function ContactPage({
           Contact Rudolfs
         </h1>
         <p className="mt-4 text-base text-stone">
-          This isn't a business inquiry form. It's where the conversation starts. Tell me what brought you here - a story or idea that landed, a place you're curious about, a question you've been sitting with.
+          {"This isn't a business inquiry form. It's where the conversation starts. Tell me what brought you here - a story or idea that landed, a place you're curious about, a question you've been sitting with."}
         </p>
       </div>
 
