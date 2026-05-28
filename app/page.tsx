@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
-import ImagePlate from "@/components/ui/ImagePlate";
+import HeroVideo from "@/components/ui/HeroVideo";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 function s(i: number): CSSProperties {
@@ -44,42 +44,62 @@ export default function HomePage() {
   return (
     <>
       {/* ── Section 1: Hero ──────────────────────────────────────────── */}
-      <section className="mx-auto max-w-content px-6 py-20 md:py-28">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          {/* Text col (right on desktop) */}
-          <div className="flex flex-col gap-6 md:order-2">
-            <p
-              className="animate-fade-up font-mono text-xs font-medium uppercase tracking-widest text-stone"
-              style={s(0)}
-            >
-              Est. Riga, Latvia
-            </p>
+      {/*
+        Z-index stacking order (bottom to top):
+          z-0  — <video>  background video
+          z-10 — overlay  dark semi-transparent layer (adjust bg-black/35 opacity here)
+          z-20 — text     all readable content
+      */}
+      <section className="relative overflow-hidden min-h-[580px] md:min-h-[700px]">
+        {/* z-0: background video — place file at /public/images/homre/hero_video.mp4 */}
+        <HeroVideo src="/images/homre/hero_video.mp4" />
 
-            <h1
-              className="animate-fade-up font-serif leading-[1.05] text-ink"
-              style={{ fontSize: "clamp(3rem, 7vw, 6rem)", fontWeight: 500, ...s(1) }}
-            >
-              No noise. Travel stories and personal reflections
-            </h1>
+        {/* z-10: dark overlay — change /35 to adjust darkness (30–40% recommended) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-10 bg-black/35"
+          aria-hidden="true"
+        />
 
-            <p className="animate-fade-up max-w-xl text-base leading-relaxed text-stone" style={s(2)}>
-              A traveler with 8 years of experience across IT and marketing, I write to turn raw
-              internal moments into human-first stories where readers finally feel understood.
-            </p>
+        {/* z-20: text content — right half on desktop, full-width on mobile */}
+        <div className="relative z-20 mx-auto max-w-content px-6 py-20 md:py-28">
+          <div className="grid md:grid-cols-2 md:gap-16">
+            {/* Left spacer — keeps text in the right column on desktop */}
+            <div className="hidden md:block" aria-hidden="true" />
 
-            <div className="animate-fade-up flex flex-wrap gap-4" style={s(3)}>
-              <Button href="/contact" variant="primary">
-                Get in touch
-              </Button>
-              <Button href="/about" variant="ghost">
-                About Rudolfs
-              </Button>
+            {/* Text column */}
+            <div className="flex flex-col gap-5">
+              <p
+                className="animate-fade-up font-mono text-xs font-medium uppercase tracking-widest text-white/60"
+                style={s(0)}
+              >
+                Est. Riga, Latvia
+              </p>
+
+              <h1
+                className="animate-fade-up font-serif leading-[1.05] text-white"
+                style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 500, ...s(1) }}
+              >
+                No noise. Travel stories and personal reflections
+              </h1>
+
+              <p className="animate-fade-up text-base leading-relaxed text-white/75" style={s(2)}>
+                A traveler with 8 years of experience across IT and marketing, I write to turn raw
+                internal moments into human-first stories where readers finally feel understood.
+              </p>
+
+              <div className="animate-fade-up flex flex-wrap gap-4" style={s(3)}>
+                <Button href="/contact" variant="primary">
+                  Get in touch
+                </Button>
+                <Button
+                  href="/about"
+                  variant="ghost"
+                  className="!border-white/40 !text-white hover:!bg-white/15"
+                >
+                  About Rudolfs
+                </Button>
+              </div>
             </div>
-          </div>
-
-          {/* Image col (left on desktop) */}
-          <div className="animate-fade-up md:order-1" style={s(4)}>
-            <ImagePlate src="/images/home/portrait.jpg" alt="Rudolfs Freibergs" halo priority />
           </div>
         </div>
       </section>
