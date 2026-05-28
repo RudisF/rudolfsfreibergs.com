@@ -50,7 +50,7 @@ export default function WorkPage() {
         side="right"
         image="/images/work/Work_4.JPG"
         title="Relationships over transactions"
-        body="I built an account management department from the ground up - scaled it to a global portfolio of 130+ accounts, NPS of 93. The framework is high-touch, growth-focused, proactive. Relationships that compound into predictable revenue, not reactive ticket queues."
+        body="I built an account management department from the ground up - scaled it to a global portfolio of 130+ accounts, The framework is high-touch, growth-focused, proactive. I believe in meaningful engagement - the kind that creates unforgettable, exciting moments and deepens over time into a trusted, long-term relationship."
         metric={{ value: "93", label: "Net Promoter Score (NPS)" }}
       >
         <ClientLogoStrip clients={clients} />

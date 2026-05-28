@@ -59,7 +59,7 @@ export default function HomePage() {
               className="animate-fade-up font-serif leading-[1.05] text-ink"
               style={{ fontSize: "clamp(3rem, 7vw, 6rem)", fontWeight: 500, ...s(1) }}
             >
-              No noise. Travel updates, new films, and personal reflections
+              No noise. Travel stories and personal reflections
             </h1>
 
             <p className="animate-fade-up max-w-xl text-base leading-relaxed text-stone" style={s(2)}>

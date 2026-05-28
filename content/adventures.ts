@@ -18,7 +18,7 @@ export const adventures: Adventure[] = [
     location: "Two Months in Nepal, 160km into the Himalayas",
     slug: "nepal",
     subtitle: "The cost of keeping still",
-    body: "Nepal teaches you that you don't actually live inside a house. You live inside the landscape of your own mind. Inside your heart.\n\nI spent two months there studying meditation alongside leaders from politics, economics, and technology - then a close friend and I walked into the Himalayas to do the hardest trek of our lives. The Three Passes loop: Kongma La, Cho La, Renjo La. 160 kilometres. The cost of keeping still, paid in altitude.",
+    body: "Nepal teaches you that you don't actually live inside a house. You live inside the landscape of your own mind. Inside your heart.\n\nI spent two months there studying sound vibrations and meditation alongside leaders from politics, economics, and technology. Afterward, a close friend from time in Peru and I headed into the Himalayas to do the hardest trek of our lives. The Three Passes loop: Kongma La, Cho La, Renjo La. 160 kilometres. The cost of keeping still, paid in altitude.",
     images: [
       "/images/adventures/Adventures_1.jpg",
       "/images/adventures/Nepal_2.jpg",

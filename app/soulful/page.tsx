@@ -21,7 +21,7 @@ const practices = [
   {
     label: "Singing bowls",
     title: "Sound that resets the body",
-    body: "My sound therapy training comes directly from practitioners in Nepal. I learned how specific harmonic vibrations move through the body's energy centres - the chakras - to release what's been held there. The sessions reset the nervous system through pure sound. They work as a standalone practice, or layered into a sauna ceremony where heat and sound amplify each other.",
+    body: "Sound therapy training comes directly from practitioners in Nepal. I learned how specific harmonic vibrations move through the body's energy centres - the chakras - to release what's been held there.\n\nThe one hour session reset the nervous system through pure sound. They work as a standalone practice, or layered into a sauna ceremony where heat and sound amplify each other.",
     image: "/images/soulful/Soulful_experiences_2.png",
     side: "left",
   },
@@ -35,7 +35,7 @@ const practices = [
   {
     label: "Positive Psychology as inspiration",
     title: "Training for what's good",
-    body: "It treats well-being as the integration of joy and difficulty, not the absence of one or the other. I work with established frameworks: aligning daily actions with values, treating negative emotions as signals rather than problems, building flexibility through small, realistic behavioural experiments.",
+    body: "Positive Psychology treats well-being as the integration of joy and difficulty, not the absence of one or the other. I work with established frameworks: aligning daily actions with values, treating negative emotions as signals rather than problems, building flexibility through small, realistic behavioural experiments.",
     image: "/images/soulful/Soulful_experiences_4.PNG",
     side: "left",
   },
@@ -65,8 +65,7 @@ export default function SoulfulPage() {
             className="mt-8 max-w-2xl font-serif italic text-ink"
             style={{ fontSize: "22px", lineHeight: 1.5 }}
           >
-            Sound baths, forest saunas, and the quiet between thoughts - a counterweight to the
-            speed of the digital world.
+            Tools that clear the noise and reset the body and mind
           </p>
         </section>
       </Container>

@@ -51,9 +51,9 @@ export const media: MediaItem[] = [
     title: "Riga Tech Dinner: AI, Marketing and BD",
     source: "Meetup",
     category: "Event",
-    year: 2025,
+    year: 2026,
     href: "https://www.meetup.com/devops-and-ai-latvia/events/314750297/",
-    image: "/images/media/Rudolfs_Freibergs_GTM.jfif",
+    image: "/images/media/Rudolfs_Freibergs_marketing.png",
   },
   {
     id: "peru-134-days-lecture",

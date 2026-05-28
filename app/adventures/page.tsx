@@ -30,8 +30,7 @@ export default function AdventuresPage() {
           Where the map runs out
         </h1>
         <p className="mt-6 max-w-lg text-base leading-relaxed text-stone">
-          A reverse-chronological record of expeditions, crossings, and the honest
-          lessons each one left behind.
+          Adventures to highlight and the honest lessons each one left behind.
         </p>
       </section>
 
