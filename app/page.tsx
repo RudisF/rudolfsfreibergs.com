@@ -1,13 +1,44 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
+import Eyebrow from "@/components/ui/Eyebrow";
 import ImagePlate from "@/components/ui/ImagePlate";
 import SectionHeader from "@/components/ui/SectionHeader";
-import CtaBand from "@/components/ui/CtaBand";
 
 function s(i: number): CSSProperties {
   return { animationDelay: `${i * 80}ms` };
 }
+
+const identities = [
+  {
+    id: "boundaries",
+    eyebrow: "Pushing boundaries",
+    title: "Adventures",
+    description:
+      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out — to clear my head and meet whoever I am when no one's watching.",
+    image: "/images/home/yangtze.jpg",
+    href: "/adventures",
+  },
+  {
+    id: "building",
+    eyebrow: "Building things",
+    title: "Work",
+    description:
+      "Eight years managing IT and marketing accounts for demanding clients. The work is technical; the stories it generates are deeply human.",
+    image: "/images/home/lecture.jpg",
+    href: "/work",
+  },
+  {
+    id: "inward",
+    eyebrow: "Going inward",
+    title: "Soulful experiences",
+    description:
+      "Sauna ceremonies, singing bowls, and the quiet between thoughts. A counterweight to the speed of everything else.",
+    image: "/images/home/portrait.jpg",
+    href: "/soulful",
+  },
+] as const;
 
 export default function HomePage() {
   return (
@@ -28,7 +59,7 @@ export default function HomePage() {
               className="animate-fade-up font-serif leading-[1.05] text-ink"
               style={{ fontSize: "clamp(3rem, 7vw, 6rem)", fontWeight: 500, ...s(1) }}
             >
-              It&apos;s about the journey, not the destination
+              No noise. Travel updates, new films, and personal reflections
             </h1>
 
             <p className="animate-fade-up max-w-xl text-base leading-relaxed text-stone" style={s(2)}>
@@ -62,22 +93,26 @@ export default function HomePage() {
               <div className="animate-fade-up" style={s(0)}>
                 <SectionHeader
                   eyebrow="Video series"
-                  title="It's about the journey, not the destination"
+                  title="It&apos;s about the journey, not the destination"
                 />
               </div>
 
-              <p
-                className="animate-fade-up max-w-xl text-base leading-relaxed text-stone"
+              <div
+                className="animate-fade-up max-w-xl space-y-4 text-base leading-relaxed text-stone"
                 style={s(1)}
               >
-                The footage has been sitting on hard drives since 2017. Raw moments from the
-                high-altitude passes of Nepal, the dust of Mauritania, and the deep trails of the
-                Amazon rainforest in Peru. I am currently editing these years of movement into a
-                cohesive YouTube video series. It is a slow process because condensing true chaos
-                into a story that respects your time takes restraint. The final cut is not ready
-                yet, but the channel is live. You can subscribe to my YouTube channel today to see
-                it the moment it drops.
-              </p>
+                <p>
+                  The destination has never been the point. The places get chosen by something
+                  quieter than logic — a feeling, a voice that says go there, and I trust it.
+                </p>
+                <p>
+                  First footages has been sitting on hard drives since 2017. High passes in Nepal,
+                  dust in Mauritania, deep trails in the Peruvian Amazon. I&apos;m editing years of
+                  movement into a YouTube series — slowly, because condensing chaos into a story
+                  that respects your time takes restraint. The final cut isn&apos;t ready. The
+                  channel is.
+                </p>
+              </div>
 
               <div className="animate-fade-up" style={s(2)}>
                 <Button
@@ -141,24 +176,17 @@ export default function HomePage() {
                 style={s(2)}
               >
                 <p>
-                  I spend my days navigating the high-demand, high-stress rhythms of corporate IT
-                  and marketing accounts. It is an environment that constantly asks you to optimize
-                  for output, numbers, and scale. To stay whole, I balance that intensity with
-                  quiet, soulful experiences like sound therapies and traditional sauna ceremonies.
-                  This is not a trendy wellness escape, it is about learning how to keep your feet
-                  on the ground while your world moves at breakneck speed.
+                  My days run on the high-demand rhythms of corporate IT, B2B marketing and
+                  customer engagement — an environment that asks you to build a relationship,
+                  optimise for output and scale. To stay whole, I balance that intensity with
+                  quieter practices: sound therapy, traditional sauna ceremonies. Not a wellness
+                  escape. A way to keep your feet on the ground while the world moves at breakneck
+                  speed.
                 </p>
                 <p>
-                  I approach B2B marketing not as a series of isolated creative campaigns, but as a
-                  core revenue engine rooted in data and strategic precision. This high-level
-                  alignment allows me to aggressively capture business expansion opportunities and
-                  build comprehensive Go-To-Market ecosystems.
-                </p>
-                <p>
-                  The dual pillars of my M-shaped professional life allow me to bring deep focus to
-                  business problems without burning out, using stillness to fuel creativity. I
-                  write about this tension because I know what it feels like to chase ambition
-                  without wanting to lose your soul in the process.
+                  Sitting in meditation at Kopan Monastery in Nepal, I decided to bring these
+                  stories and notes into public view. I write about this tension because I know
+                  what it feels like to chase ambition without losing your soul in the process.
                 </p>
               </div>
 
@@ -178,14 +206,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Closing CTA ──────────────────────────────────────────────── */}
-      <CtaBand
-        heading="Let's work together"
-        subcopy="Enquiries for marketing and account management — or just say hello."
-        ctaLabel="Get in touch"
-        href="/contact"
-        tone="accent"
-      />
+      {/* ── Section 4: Three identities ──────────────────────────────── */}
+      <section className="border-t border-rule">
+        <div className="mx-auto max-w-content px-6 py-20 md:py-28">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {identities.map(({ id, eyebrow, title, description, image, href }) => (
+              <article
+                key={id}
+                className="flex flex-col gap-4 rounded-2xl border border-rule bg-paper p-6"
+              >
+                <div className="flex-1 space-y-2">
+                  <Eyebrow>{eyebrow}</Eyebrow>
+                  <h3
+                    className="font-serif font-semibold leading-snug text-ink"
+                    style={{ fontSize: "28px" }}
+                  >
+                    {title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-stone">{description}</p>
+                </div>
+
+                <div className="flex items-end justify-between gap-4 pt-2">
+                  <Link
+                    href={href}
+                    className="font-sans text-sm font-medium text-accent underline-offset-4 hover:underline"
+                  >
+                    Read more →
+                  </Link>
+
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-rule">
+                    <Image
+                      src={image}
+                      alt={title}
+                      fill
+                      loading="lazy"
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

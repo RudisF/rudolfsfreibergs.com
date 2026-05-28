@@ -41,7 +41,7 @@ export default function WorkPage() {
         side="left"
         image="/images/work/Work_1.png"
         title="Demand that compounds"
-        body="I approach B2B marketing as a highly structured system designed to maximize engagement within specific ICP and TAM segments. I orchestrated a cross-functional team to unify data research, ABM and tailored content functions. My focus is on moving away from vague, unmeasurable marketing initiatives and instead building fully aligned, full-funnel attribution models. By synchronizing workflows directly with account management, I ensure 100% visibility into demand generation ROI and performance metrics. I develop tailored marketing playbooks and expansion strategies in direct collaboration with company executives. This high-level alignment allows us to aggressively capture business expansion opportunities and identify strategic partnerships. Ultimately, I treat B2B marketing not as a series of isolated creative campaigns, but as a core revenue engine rooted in data and strategic precision."
+        body="I treat B2B marketing as a revenue engine, not a campaign calendar — built on data, full-funnel attribution, and tight alignment with account management. Eight years of building playbooks with executives, finding expansion in markets that look saturated.\n\nReal hand on experience hosting executive roundtables in Dubai, Zurich, London and Latvia."
       />
 
       <WorkRow
@@ -50,7 +50,7 @@ export default function WorkPage() {
         side="right"
         image="/images/work/Work_4.JPG"
         title="Relationships over transactions"
-        body="Account management is about evolving standard client relationships into predictable, high-growth revenue drivers. I built a dedicated Account Management department from the ground up, scaling it to successfully service a global portfolio of over 130 accounts. Rather than reacting to client issues as they arise, I formalized a holistic growth framework centered on high-touch relationship management and deep service penetration."
+        body="I built an account management department from the ground up — scaled it to a global portfolio of 130+ accounts, NPS of 93. The framework is high-touch, growth-focused, proactive. Relationships that compound into predictable revenue, not reactive ticket queues."
         metric={{ value: "93", label: "Net Promoter Score (NPS)" }}
       >
         <ClientLogoStrip clients={clients} />
@@ -62,7 +62,7 @@ export default function WorkPage() {
         side="left"
         image="/images/work/Work_3.png"
         title="From zero to launched"
-        body="A successful Go-To-Market strategy requires absolute alignment between internal execution and external market opportunity. I specialize in creating and scaling comprehensive GTM and ABM ecosystems designed to deeply penetrate target market segments. This process begins by identifying high-growth market opportunities in direct collaboration with executive leadership. From there, I build specific sales and marketing channels across professional networks, digital platforms, and developer communities. My GTM methodology relies heavily on capturing precise decision-maker intent to ensure our outreach hits at the exact moment of need. I have pressure-tested these expansion frameworks internationally by curating and hosting global executive events and roundtables in major business hubs like Dubai, Zurich, London, and New York. A great GTM strategy does not just launch a product; it systematically institutionalizes demand generation."
+        body="A Go-To-Market strategy lives or dies on the alignment between internal execution and external timing. I build GTM ecosystems with AI at the core. In my concepts: the seller wins when they know more about the buyer's actual situation than the buyer does.\n\nThat competitive edge for marketing doesn't come from more engagement. It comes from account management knowledge who've lived inside one customer segment for years, layered with AI that surfaces what's happening inside the account before the lead even arrives. When the first conversation starts, you are telling them something about their own business they hadn't noticed yet."
       />
 
       <WorkRow
@@ -71,7 +71,7 @@ export default function WorkPage() {
         side="right"
         image="/images/work/Work_4.JPG"
         title="Leverage, not hype"
-        body="I design and deploy AI solutions that integrate directly into sales and marketing pipelines to capture real-time account intent signals. This allows teams to instantly identify hidden engagement gaps within target accounts before revenue is lost. To keep our technical execution sharp and modern, I maintain hands-on experience building workflows with automation platforms like Claude Code. These automated pipelines help bridge the data divide, ensuring full-funnel attribution models have the clean, real-time data they need to function. By combining technical automation with psychological precision, I turn raw data into actionable insights for the frontline of the sales team. Ultimately, I use AI to strip away the guesswork from enterprise sales so we can focus entirely on high-value, human-to-human relationships."
+        body="I build systems that turn your private corpus into messages that can't be replicated. That's the whole game. The solutions you delivered, the industry context behind them — it lives with the PMs and Account Managers who built it, often without ever reaching the Marketing team. So the sharpest knowledge in your company is the knowledge that never makes it to your buyer.\n\nThat gap is the competitive edge most companies leave on the table. AI doesn't replace the people who hold it — it amplifies their intuition, surfaces what they know but haven't articulated, and gets it into the hands of the team writing the next message.\n\nCompanies that go horizontally don't understand verticals — they don't understand why customers actually buy. My job in marketing is to advance the intuition of the customer. AI is how you finally do that at scale."
       />
 
       <Certifications />

@@ -2,7 +2,7 @@ export type MediaItem = {
   id: string;
   title: string;
   source: string;
-  category: "Podcast" | "Webinar" | "Lecture" | "Award" | "Media";
+  category: "Podcast" | "Webinar" | "Event" | "Award" | "Media";
   year: number;
   href: string;
   image: string;
@@ -47,10 +47,19 @@ export const media: MediaItem[] = [
     image: "/images/media/Image_3.png",
   },
   {
+    id: "riga-tech-dinner-gtm",
+    title: "Riga Tech Dinner: AI, Marketing and BD",
+    source: "Meetup",
+    category: "Event",
+    year: 2025,
+    href: "https://www.meetup.com/devops-and-ai-latvia/events/314750297/",
+    image: "/images/media/Rudolfs_Freibergs_GTM.jfif",
+  },
+  {
     id: "peru-134-days-lecture",
     title: "Tālu no komforta zonas — 134 dienas Peru",
     source: "Turība University",
-    category: "Lecture",
+    category: "Event",
     year: 2019,
     href: "https://www.facebook.com/events/biznesa-augstskola-tur%C4%ABba/r%C5%ABdolfs-freibergs-t%C4%81lu-no-komforta-zonas-134-dienas-peru/2319858271466571/",
     image: "/images/media/Image_4.png",

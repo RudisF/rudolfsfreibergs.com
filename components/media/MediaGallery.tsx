@@ -5,12 +5,12 @@ import { useSearchParams } from "next/navigation";
 import MediaCard from "@/components/ui/MediaCard";
 import type { MediaItem } from "@/content/media";
 
-const FILTERS = ["Podcast", "Webinar", "Lecture", "Award", "Media"] as const;
+const FILTERS = ["Podcast", "Webinar", "Event", "Award", "Media"] as const;
 
 const CATEGORY_COLORS: Record<MediaItem["category"], string> = {
   Podcast: "#2f4cff",
   Webinar: "#1a7a4a",
-  Lecture: "#b06000",
+  Event: "#b06000",
   Award: "#8b2fd0",
   Media: "#c0392b",
 };

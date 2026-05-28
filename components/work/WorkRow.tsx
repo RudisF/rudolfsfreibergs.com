@@ -65,7 +65,11 @@ export default function WorkRow({
               </div>
             )}
 
-            <p className="max-w-prose text-base leading-relaxed text-stone">{body}</p>
+            <div className="max-w-prose space-y-4 text-base leading-relaxed text-stone">
+              {body.split("\n\n").map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
 
             {children}
           </div>

@@ -6,7 +6,9 @@ import Button from "@/components/ui/Button";
 
 const TOPICS = [
   { label: "Speaking", slug: "speaking" },
-  { label: "Corporate", slug: "corporate" },
+  { label: "Corporate or work", slug: "corporate-or-work" },
+  { label: "Sauna or session", slug: "sauna-or-session" },
+  { label: "Adventures", slug: "adventures" },
   { label: "Just say hi", slug: "just-say-hi" },
 ] as const;
 

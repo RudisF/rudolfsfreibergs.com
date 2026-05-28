@@ -19,7 +19,7 @@ const identities = [
     eyebrow: "Pushing boundaries",
     title: "Adventures",
     description:
-      "I seek out the edges where maps run out and certainty dissolves. These are the places where the most honest stories live.",
+      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out — to clear my head and meet whoever I am when no one's watching.",
     image: "/images/home/yangtze.jpg",
     href: "/adventures",
   },
@@ -37,7 +37,7 @@ const identities = [
     eyebrow: "Going inward",
     title: "Soulful experiences",
     description:
-      "Sound baths, forest saunas, and the quiet between thoughts. A counterweight to the speed of the digital world.",
+      "Sauna ceremonies, singing bowls, and the quiet between thoughts. A counterweight to the speed of everything else.",
     image: "/images/home/portrait.jpg",
     href: "/soulful",
   },
@@ -78,10 +78,9 @@ export default function AboutPage() {
             <div className="space-y-4 text-base leading-relaxed text-stone">
               <p>I build teams and spaces that help people breathe.</p>
               <p>
-                On the surface, my work looks like two careers. I design marketing and account
-                management teams, and I run heat and sound therapy for people worn down by
-                high-intensity lives. To me it is one problem: removing noise so a person can
-                think clearly again.
+                On the surface, my work looks like two careers — marketing and account management
+                teams, and heat and sound therapy for people worn down by high-intensity lives. To
+                me it&apos;s one problem: removing noise so a person can think clearly again.
               </p>
               <p>
                 We treat the body like a machine with a broken part. More apps, more sleep data,
@@ -89,19 +88,19 @@ export default function AboutPage() {
                 screams the things your mouth refuses to say.
               </p>
               <p>
-                Whether I am rebuilding a sales process or putting someone in a sauna until their
-                shoulders finally drop, the objective is the same: clear the chaos, so what is in
-                front of you becomes visible.
+                Whether I&apos;m rebuilding a sales process or putting someone in a sauna until
+                their shoulders finally drop, the objective is the same: clear the chaos so
+                what&apos;s in front of you becomes visible.
               </p>
               <p>
-                Once a year, I leave the context behind. Nepal, Mauritania, the Amazon. Wandering
-                through places that do not care about you is one of the few reliable ways to build
-                conviction in the choices you make when you come home.
+                Once a year, I leave the context behind. Wandering through places that don&apos;t
+                care about you is one of the reliable ways to build conviction in the choices you
+                make when you come home. Its about building confidence in decisions you make and
+                feeling the trust in strangers.
               </p>
               <p>
-                I am sharing notes on these rhythms. No formula. No tidy lessons. Just how
-                technical intensity and physical alignment can live in the same body without one
-                consuming the other.
+                No formula. No tidy lessons. Just notes on how technical intensity and physical
+                alignment can live in the same body without one consuming the other.
               </p>
             </div>
           </div>
@@ -141,20 +140,23 @@ export default function AboutPage() {
               className="font-serif font-medium leading-snug text-ink"
               style={{ fontSize: "32px" }}
             >
-              Philosophy of the M shape
+              Philosophy of the M-shape
             </h2>
-            <p className="text-base leading-relaxed text-stone">
-              The traditional T-shaped professional has a broad base of light skills and one deep
-              area of expertise. The M-shape model evolves this concept. Instead of a single
-              vertical peak, an M-shaped person builds multiple deep, specialized pillars of
-              expertise. Personally, I see my own M-shape showing up clearly in how I balance my
-              professional and internal worlds. One peak lives inside the high-stakes execution of
-              managing accounts and marketing strategy. The other peak is anchored deeply in my
-              spiritual practices, sauna ceremonies, and sound therapies. This is not a
-              contradiction. The dual pillars allow me to bring deep focus to business problems
-              without burning out, using the stillness of my personal practices to fuel the
-              creativity needed in my marketing work.
-            </p>
+            <div className="space-y-4 text-base leading-relaxed text-stone">
+              <p>
+                The T-shaped professional has a broad base of skills and one deep area of expertise.
+              </p>
+              <p>
+                The M-shape has more than one peak. Mine shows up clearly in how I balance the
+                professional and the internal. One peak sits in high-stakes execution — managing
+                accounts and marketing strategy. The other is anchored in sauna ceremonies, sound
+                therapy, meditation.
+              </p>
+              <p>
+                Not a contradiction. The dual pillars let me bring deep focus to business problems
+                without burning out, using the stillness of one to fuel the creativity of the other.
+              </p>
+            </div>
           </div>
         </div>
       </section>
