@@ -26,7 +26,7 @@ export default function HeroVideo({ src }: { src: string }) {
       aria-hidden="true"
       className="absolute inset-0 z-0 h-full w-full object-cover"
     >
-      <source src={src} type="video/mp4" />
+      <source src={src} type={src.endsWith(".webm") ? "video/webm" : "video/mp4"} />
     </video>
   );
 }

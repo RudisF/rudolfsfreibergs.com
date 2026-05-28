@@ -51,8 +51,8 @@ export default function HomePage() {
           z-20 — text     all readable content
       */}
       <section className="relative overflow-hidden min-h-[580px] md:min-h-[700px]">
-        {/* z-0: background video — place file at /public/images/homre/hero_video.mp4 */}
-        <HeroVideo src="/images/homre/hero_video.mp4" />
+        {/* z-0: background video */}
+        <HeroVideo src="/images/about/Hero_video/Rudolfsfreibergs.webm" />
 
         {/* z-10: dark overlay — change /35 to adjust darkness (30–40% recommended) */}
         <div
