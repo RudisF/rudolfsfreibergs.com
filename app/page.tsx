@@ -17,7 +17,7 @@ const identities = [
     title: "Adventures",
     description:
       "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out - to clear my head and meet whoever I am when no one's watching.",
-    image: "/images/home/yangtze.jpg",
+    image: "/images/home/Rudolfs_Freibergs_3.jpg.jpg",
     href: "/adventures",
   },
   {
@@ -26,7 +26,7 @@ const identities = [
     title: "Work",
     description:
       "Eight years managing IT and marketing accounts for demanding clients. The work is technical; the stories it generates are deeply human.",
-    image: "/images/home/lecture.jpg",
+    image: "/images/home/Rudolfs_Freibergs_1.jpg",
     href: "/work",
   },
   {
@@ -35,7 +35,7 @@ const identities = [
     title: "Soulful experiences",
     description:
       "Sauna ceremonies, singing bowls, and the quiet between thoughts. A counterweight to the speed of everything else.",
-    image: "/images/home/portrait.jpg",
+    image: "/images/home/Rudolfs_Freibergs_2.jpg.jpg",
     href: "/soulful",
   },
 ] as const;
@@ -60,12 +60,9 @@ export default function HomePage() {
           aria-hidden="true"
         />
 
-        {/* z-20: text content — right half on desktop, full-width on mobile */}
+        {/* z-20: text content — left half on desktop, full-width on mobile */}
         <div className="relative z-20 mx-auto max-w-content px-6 py-20 md:py-28">
           <div className="grid md:grid-cols-2 md:gap-16">
-            {/* Left spacer — keeps text in the right column on desktop */}
-            <div className="hidden md:block" aria-hidden="true" />
-
             {/* Text column */}
             <div className="flex flex-col gap-5">
               <p
@@ -152,7 +149,7 @@ export default function HomePage() {
               style={s(3)}
             >
               <Image
-                src="/images/home/yangtze.jpg"
+                src="/images/home/Rudolfs_Freibergs_3.jpg.jpg"
                 alt="Yangtze River expedition"
                 fill
                 className="object-cover object-center"
@@ -173,7 +170,7 @@ export default function HomePage() {
               style={s(0)}
             >
               <Image
-                src="/images/home/lecture.jpg"
+                src="/images/home/Rudolfs_Freibergs_1.jpg"
                 alt="Rudolfs speaking"
                 fill
                 className="object-cover object-center"

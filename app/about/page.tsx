@@ -20,7 +20,7 @@ const identities = [
     title: "Adventures",
     description:
       "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out - to clear my head and meet whoever I am when no one's watching.",
-    image: "/images/home/yangtze.jpg",
+    image: "/images/home/Rudolfs_Freibergs_3.jpg.jpg",
     href: "/adventures",
   },
   {
@@ -29,7 +29,7 @@ const identities = [
     title: "Work",
     description:
       "Eight years managing IT and marketing accounts for demanding clients. The work is technical; the stories it generates are deeply human.",
-    image: "/images/home/lecture.jpg",
+    image: "/images/home/Rudolfs_Freibergs_1.jpg",
     href: "/work",
   },
   {
@@ -38,7 +38,7 @@ const identities = [
     title: "Soulful experiences",
     description:
       "Sauna ceremonies, singing bowls, and the quiet between thoughts. A counterweight to the speed of everything else.",
-    image: "/images/home/portrait.jpg",
+    image: "/images/home/Rudolfs_Freibergs_2.jpg.jpg",
     href: "/soulful",
   },
 ] as const;
@@ -57,7 +57,7 @@ export default function AboutPage() {
           {/* Left: square portrait */}
           <div className="relative aspect-square overflow-hidden rounded-2xl bg-rule">
             <Image
-              src="/images/about/About_1.JPG"
+              src="/images/about/Nepal_Rudolfs_Freibergs.JPG"
               alt="Rudolfs in Nepal"
               fill
               priority
@@ -111,7 +111,7 @@ export default function AboutPage() {
       <div>
         <div className="h-[4px] bg-accent" />
         <ImagePlate
-          src="/images/about/About_2.jpeg"
+          src="/images/about/Kopan_Monastery.jpeg"
           alt="Group at the temple"
           ratio="16/9"
           sizes="(max-width: 768px) 100vw, 1200px"

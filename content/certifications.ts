@@ -21,6 +21,6 @@ export const certifications: Certification[] = [
 ];
 
 export const mentorships: Mentorship[] = [
-  { name: "Business engagement", mentor: "Scott Gould" },
+  { name: "Business Engagement", mentor: "Scott Gould" },
   { name: "ABM and B2B Marketing", mentor: "Fullfunnel.io" },
 ];

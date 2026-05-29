@@ -32,9 +32,9 @@ export interface Client {
 }
 
 export const clients: Client[] = [
-  { name: "Haypp", logo: "/images/clients/Haypp.jpg" },
+  { name: "Haypp", logo: "/images/clients/Haypp_Group.jpg" },
   { name: "Läderach", logo: "/images/clients/Laderach.gif" },
   { name: "MET Store", logo: "/images/clients/MET_Store.png" },
-  { name: "PUMA", logo: "/images/clients/new-Puma-cat-logo-black-png-large-size.png", className: "scale-[0.8]" },
-  { name: "Spice", logo: "/images/clients/Spice.png" },
+  { name: "Spice", logo: "/images/clients/Spice_Shopping_Center.png" },
+  { name: "PUMA", logo: "/images/clients/Puma_store.png", className: "scale-[0.8]" },
 ];

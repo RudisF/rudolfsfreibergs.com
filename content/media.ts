@@ -33,7 +33,7 @@ export const media: MediaItem[] = [
     category: "Podcast",
     year: 2026,
     href: "https://www.youtube.com/watch?v=xoDu5pck0Ag&t=727s",
-    image: "/images/media/Image_1.png",
+    image: "/images/media/Rudolfs_Freibergs_Mauritania.png",
     hasVideo: true,
   },
   {
@@ -43,7 +43,7 @@ export const media: MediaItem[] = [
     category: "Webinar",
     year: 2023,
     href: "https://www.youtube.com/watch?v=ctGJMadNwNU&t=1691s",
-    image: "/images/media/Image_2.png",
+    image: "/images/media/Rudolfs_Freibergs_eCommerce.png",
     hasVideo: true,
   },
   {
@@ -53,7 +53,7 @@ export const media: MediaItem[] = [
     category: "Award",
     year: 2023,
     href: "https://www.turiba.lv/storage/files/intervija-rudolfs-freibergs.pdf",
-    image: "/images/media/Image_3.png",
+    image: "/images/media/Rudolfs_Freibergs_university.png",
   },
   {
     id: "peru-134-days-lecture",
@@ -62,7 +62,7 @@ export const media: MediaItem[] = [
     category: "Event",
     year: 2019,
     href: "https://www.facebook.com/events/biznesa-augstskola-tur%C4%ABba/r%C5%ABdolfs-freibergs-t%C4%81lu-no-komforta-zonas-134-dienas-peru/2319858271466571/",
-    image: "/images/media/Image_4.png",
+    image: "/images/media/Rudolfs_Freibergs_Peru.png",
   },
   {
     id: "marcahuasi-peru-travelnews",
@@ -71,6 +71,6 @@ export const media: MediaItem[] = [
     category: "Media",
     year: 2018,
     href: "https://www.travelnews.lv/index_19022009_2.php?m_id=18290&i_id=5&pub_id=109663",
-    image: "/images/media/Image_5.jpg",
+    image: "/images/media/Rudolfs_Freibergs_Peru_2.jpg",
   },
 ];
