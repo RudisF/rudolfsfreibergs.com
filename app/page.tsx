@@ -105,7 +105,21 @@ export default function HomePage() {
       <section className="border-t border-rule">
         <div className="mx-auto max-w-content px-6 py-20 md:py-28">
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            {/* Left: text */}
+            {/* Left: tall portrait, full bleed */}
+            <div
+              className="animate-fade-up relative aspect-[2/3] overflow-hidden rounded-2xl"
+              style={s(3)}
+            >
+              <Image
+                src="/images/home/Rudolfs_Freibergs_3.jpg.jpg"
+                alt="Yangtze River expedition"
+                fill
+                className="object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Right: text */}
             <div className="flex flex-col gap-6">
               <div className="animate-fade-up" style={s(0)}>
                 <SectionHeader
@@ -142,20 +156,6 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-
-            {/* Right: tall portrait, full bleed */}
-            <div
-              className="animate-fade-up relative aspect-[2/3] overflow-hidden rounded-2xl"
-              style={s(3)}
-            >
-              <Image
-                src="/images/home/Rudolfs_Freibergs_3.jpg.jpg"
-                alt="Yangtze River expedition"
-                fill
-                className="object-cover object-center"
-                loading="lazy"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default function HomePage() {
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             {/* Left: image */}
             <div
-              className="animate-fade-up relative aspect-[4/3] overflow-hidden rounded-2xl md:order-1"
+              className="animate-fade-up relative aspect-[4/3] overflow-hidden rounded-2xl md:order-2"
               style={s(0)}
             >
               <Image
@@ -179,7 +179,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: text */}
-            <div className="flex flex-col gap-6 md:order-2">
+            <div className="flex flex-col gap-6 md:order-1">
               <div className="animate-fade-up" style={s(1)}>
                 <SectionHeader
                   eyebrow="About Rudolfs"
