@@ -28,7 +28,7 @@ export const adventures: Adventure[] = [
       "/images/adventures/Nepal_5.jpg",
       "/images/adventures/Nepal_6.JPG",
     ],
-    side: "right",
+    side: "left",
   },
   {
     year: 2025,
@@ -44,7 +44,7 @@ export const adventures: Adventure[] = [
       "/images/adventures/Mauritania_4.jpg",
       "/images/adventures/Mauritania_5.JPG",
     ],
-    side: "left",
+    side: "right",
   },
   {
     year: 2017,
@@ -60,6 +60,6 @@ export const adventures: Adventure[] = [
       "/images/adventures/Peru_4.jpg",
       "/images/adventures/Peru_Amazon_Jungle_Iquitos.jpg",
     ],
-    side: "right",
+    side: "left",
   },
 ];
