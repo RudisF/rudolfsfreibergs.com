@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +6,10 @@ import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import HeroVideo from "@/components/ui/HeroVideo";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 function s(i: number): CSSProperties {
   return { animationDelay: `${i * 80}ms` };

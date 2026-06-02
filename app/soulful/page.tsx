@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Soulful experiences",
   description:
     "Sauna ceremonies, singing-bowl sound therapy, guided meditation, positive psychology, and core shamanism - a grounded counterweight to a fast digital world.",
+  alternates: { canonical: "/soulful" },
 };
 
 const practices = [

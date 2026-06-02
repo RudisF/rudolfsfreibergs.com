@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Rudolfs Freibergs about speaking, corporate work, or just to say hi.",
+  alternates: { canonical: "/contact" },
 };
 
 const SOCIALS = [

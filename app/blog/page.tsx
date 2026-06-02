@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Field notes - short, honest essays on ambition, adventure, technology, and staying grounded.",
+  alternates: { canonical: "/blog" },
 };
 
 const PAGE_SIZE = 6;

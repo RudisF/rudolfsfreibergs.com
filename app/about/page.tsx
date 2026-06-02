@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Who Rudolfs Freibergs is: a traveler moving between technology and mountain passes, and the M-shaped philosophy of balancing high-stakes work with soulful practice.",
+  alternates: { canonical: "/about" },
 };
 
 // ── identity card data ─────────────────────────────────────────────────────────

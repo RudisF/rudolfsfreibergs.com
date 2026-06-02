@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Eight years across B2B marketing, account management, go-to-market, and AI - treating marketing as a revenue engine rooted in data and strategic precision.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

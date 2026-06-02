@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Media",
   description:
     "Podcasts, webinars, lectures, awards, and press featuring Rudolfs Freibergs.",
+  alternates: { canonical: "/media" },
 };
 
 export default function MediaPage({
