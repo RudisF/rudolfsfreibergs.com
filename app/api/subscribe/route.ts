@@ -1,12 +1,14 @@
+import { Resend } from "resend";
 import { NextResponse } from "next/server";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface SubscribePayload {
   email?: string;
 }
 
 export async function POST(request: Request) {
-  const id = process.env.FORMSPREE_NEWSLETTER_ID;
-  if (!id) {
+  if (!process.env.RESEND_API_KEY || !process.env.RESEND_AUDIENCE_ID) {
     return NextResponse.json({ error: "Newsletter is not configured." }, { status: 500 });
   }
 
@@ -23,16 +25,16 @@ export async function POST(request: Request) {
   }
 
   try {
-    const res = await fetch(`https://formspree.io/f/${id}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ email, _subject: `New newsletter signup — ${email}` }),
+    const { error } = await resend.contacts.create({
+      email,
+      audienceId: process.env.RESEND_AUDIENCE_ID,
     });
 
-    if (res.ok) return NextResponse.json({ ok: true });
+    if (error) {
+      return NextResponse.json({ error: "Could not subscribe." }, { status: 502 });
+    }
 
-    const detail = await res.json().catch(() => ({}));
-    return NextResponse.json({ error: "Could not subscribe.", detail }, { status: 502 });
+    return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Could not reach the mail service." }, { status: 502 });
   }
