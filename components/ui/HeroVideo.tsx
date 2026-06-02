@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/components/providers/ReducedMotionProvider";
 
-export default function HeroVideo({ src }: { src: string }) {
+export default function HeroVideo({ src, poster }: { src: string; poster?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
 
@@ -18,6 +18,8 @@ export default function HeroVideo({ src }: { src: string }) {
   }, [reducedMotion]);
 
   // z-index layer 1 of 3 in the hero stack: video (z-0) → overlay (z-10) → text (z-20)
+  // preload="none" avoids downloading the full video on load, improving LCP.
+  // The poster shows immediately while the video fetches in the background.
   return (
     <video
       ref={ref}
@@ -25,7 +27,8 @@ export default function HeroVideo({ src }: { src: string }) {
       loop
       muted
       playsInline
-      preload="auto"
+      preload="none"
+      poster={poster}
       aria-hidden="true"
       className="absolute inset-0 z-0 h-full w-full object-cover"
     >

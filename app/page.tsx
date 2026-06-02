@@ -52,7 +52,10 @@ export default function HomePage() {
       */}
       <section className="relative overflow-hidden h-screen">
         {/* z-0: background video */}
-        <HeroVideo src="/images/about/Hero_video/Rudolfsfreibergs.webm" />
+        <HeroVideo
+          src="/images/about/Hero_video/Rudolfsfreibergs.webm"
+          poster="/images/about/Nepal_Rudolfs_Freibergs.JPG"
+        />
 
         {/* z-10: dark overlay — change /35 to adjust darkness (30–40% recommended) */}
         <div
@@ -114,6 +117,7 @@ export default function HomePage() {
                 src="/images/home/Rudolfs_Freibergs_3.jpg.jpg"
                 alt="Yangtze River expedition"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
                 loading="lazy"
               />
@@ -173,6 +177,7 @@ export default function HomePage() {
                 src="/images/home/Rudolfs_Freibergs_1.jpg"
                 alt="Rudolfs speaking"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
                 loading="lazy"
               />
