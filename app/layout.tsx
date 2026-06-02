@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -102,7 +101,6 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </ReducedMotionProvider>
-        <Analytics />
         <SpeedInsights />
       </body>
     </html>
