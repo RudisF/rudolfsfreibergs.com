@@ -1,6 +1,6 @@
 ---
 title: "How I built my website on Claude Code"
-description: "How I built rudolfsfreibergs.com in two days for €34 total, with no monthly fees - using Claude Code, Next.js, and Formspree instead of a database."
+description: "How I built rudolfsfreibergs.com in two days for €34 total, with no monthly fees - using Claude Code, Next.js, and Resend instead of a database."
 date: "2026-05-23"
 tags: ["AI"]
 author: "Rudolfs Freibergs"
@@ -50,9 +50,19 @@ I wanted a site with structural confidence, heavily inspired by clean text layou
 
 The main reason personal websites become expensive is form handling. Standard implementation says you need a live database server to log entries.
 
-Instead, I used Formspree as an invisible backend proxy. It delivers every submission directly to my personal inbox without a live database running on my dime.
+I started with Formspree as a quick proxy - it delivered form submissions to my inbox without any infrastructure. Simple, zero configuration, done in minutes.
 
-I had Claude build native Next.js Route Handlers. The contact form submits to my own /api/contact endpoint, and the server securely forwards it to Formspree. By abstracting the database layer out of the architecture, the entire platform remains static. It can be hosted for free on Vercel, deployed straight from GitHub.
+But it had a ceiling. The free tier caps at 50 submissions per month. More importantly, it gave me no control over how emails looked or who sent them. Every notification arrived from a Formspree domain, not mine.
+
+So I upgraded to Resend.
+
+Resend is a transactional email API. I had Claude rewrite the Route Handlers to send through Resend instead. The contact form now sends a branded notification email from contact@rudolfsfreibergs.com directly to my Gmail, with a one-click reply button built in. The visitor gets an automatic confirmation reply the moment they submit.
+
+The bigger unlock is newsletter management. Every person who subscribes gets added directly to a Resend Audience - a built-in contact list I own and control. When I want to send a newsletter, I open Resend, write the email, pick my audience, and send. No third-party mailing platform. No Mailchimp subscription. No exported CSV files.
+
+The entire email layer - contact notifications, auto-replies, and newsletter broadcasts - runs on Resend's free tier. 3,000 emails per month at zero cost.
+
+I had Claude build native Next.js Route Handlers for both endpoints. The contact form submits to /api/contact and the newsletter signup submits to /api/subscribe. Both forward through Resend. By abstracting the email layer entirely out of the architecture, the platform stays static, hosted for free on Vercel, deployed straight from GitHub.
 
 ## Living in the text editor
 
@@ -70,6 +80,6 @@ If you are looking to build a digital home without inheriting an infrastructure 
 
 - Research existing sites to lock down your visual direction before writing code.
 - Map your pages simply on a digital whiteboard to protect the user experience.
-- Treat form collection as an endpoint task, not a database task.
+- Treat form collection as an endpoint task, not a database task. Route handlers forwarding to a transactional email API like Resend cover contact forms, auto-replies, and newsletter management in one place.
 
 The text editor is the cleanest interface you will ever own. Keep the engineering invisible, and keep the bills non-existent.
