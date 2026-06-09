@@ -22,6 +22,10 @@ export const stack: Tool[] = [
   { name: "FF", logo: "/images/stack/FF.webp" },
   { name: "B2B Marketing", logo: "/images/stack/b2b-marketing-vector-logo.png" },
   { name: "SSE Riga", logo: "/images/stack/sse_riga_logo.svg" },
+  { name: "Apollo", logo: "/images/stack/apollo-logo.svg" },
+  { name: "Resend", logo: "/images/stack/resend-logo.svg" },
+  { name: "Lovable", logo: "/images/stack/lovable-logo.svg" },
+  { name: "ActiveCampaign", logo: "/images/stack/activecampaign-logo.svg" },
 ];
 
 export interface Client {
