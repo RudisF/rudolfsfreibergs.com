@@ -32,6 +32,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState(""); // honeypot
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -48,7 +49,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, name, email, message }),
+        body: JSON.stringify({ topic, name, email, message, company }),
       });
 
       if (res.ok) {
@@ -56,9 +57,11 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
       } else {
         setStatus("error");
         setErrorMsg(
-          res.status >= 500
-            ? "Something went wrong on my end - please try again shortly."
-            : "Please double-check your details and try again.",
+          res.status === 429
+            ? "Too many messages - please try again a bit later."
+            : res.status >= 500
+              ? "Something went wrong on my end - please try again shortly."
+              : "Please double-check your details and try again.",
         );
       }
     } catch {
@@ -120,6 +123,19 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      {/* Honeypot - hidden from people, often filled by bots */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+      </div>
+
       {/* Name */}
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="font-mono text-xs uppercase tracking-widest text-stone">

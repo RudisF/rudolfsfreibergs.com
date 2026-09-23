@@ -6,14 +6,59 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = "contact@rudolfsfreibergs.com";
 const TO = "rudis.freibergs@gmail.com";
 
-interface ContactPayload {
-  topic?: string;
-  name?: string;
-  email?: string;
-  message?: string;
+const TOPICS = ["Speaking", "Corporate or work", "Sauna or session", "Adventures", "Just say hi"];
+
+const MAX_NAME = 100;
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 5000;
+const EMAIL_RE = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/;
+
+// Best-effort per-IP rate limit. In-memory, so it resets on cold starts and
+// isn't shared between serverless instances, but it stops casual abuse.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const hits = new Map<string, number[]>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT) {
+    hits.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  hits.set(ip, recent);
+  return false;
 }
 
-function notificationHtml(topic: string, name: string, email: string, message: string) {
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function singleLine(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
+interface ContactPayload {
+  topic?: unknown;
+  name?: unknown;
+  email?: unknown;
+  message?: unknown;
+  company?: unknown;
+}
+
+function notificationHtml(rawTopic: string, rawName: string, rawEmail: string, rawMessage: string) {
+  const topic = escapeHtml(rawTopic);
+  const name = escapeHtml(rawName);
+  const email = escapeHtml(rawEmail);
+  const message = escapeHtml(rawMessage);
+  const mailto = escapeHtml(encodeURIComponent(rawEmail));
+  const replyName = escapeHtml(rawName.split(" ")[0] || rawEmail);
   return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -50,7 +95,7 @@ function notificationHtml(topic: string, name: string, email: string, message: s
         <!-- CTA -->
         <tr>
           <td style="padding:0 32px 32px;">
-            <a href="mailto:${email}" style="display:inline-block;background:#2f4cff;color:#ffffff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;">Reply to ${name.split(" ")[0] || email}</a>
+            <a href="mailto:${mailto}" style="display:inline-block;background:#2f4cff;color:#ffffff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none;">Reply to ${replyName}</a>
           </td>
         </tr>
       </table>
@@ -61,7 +106,7 @@ function notificationHtml(topic: string, name: string, email: string, message: s
 }
 
 function autoReplyHtml(name: string) {
-  const first = name.split(" ")[0] || "there";
+  const first = escapeHtml(name.split(" ")[0] || "there");
   return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -108,10 +153,34 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { topic = "General", name = "", email = "", message = "" } = data;
+  // Honeypot: real visitors never see this field, bots tend to fill it.
+  // Pretend success so bots don't learn to skip it.
+  if (typeof data.company === "string" && data.company.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ error: "Too many messages. Please try again later." }, { status: 429 });
+  }
+
+  const topic =
+    typeof data.topic === "string" && TOPICS.includes(data.topic) ? data.topic : "General";
+  const name = typeof data.name === "string" ? singleLine(data.name) : "";
+  const email = typeof data.email === "string" ? data.email.trim() : "";
+  const message = typeof data.message === "string" ? data.message.trim() : "";
 
   if (!email || !message) {
     return NextResponse.json({ error: "Email and message are required." }, { status: 400 });
+  }
+
+  if (
+    name.length > MAX_NAME ||
+    email.length > MAX_EMAIL ||
+    message.length > MAX_MESSAGE ||
+    !EMAIL_RE.test(email)
+  ) {
+    return NextResponse.json({ error: "Please check your details and try again." }, { status: 400 });
   }
 
   try {
@@ -121,7 +190,7 @@ export async function POST(request: Request) {
         from: FROM,
         to: TO,
         replyTo: email,
-        subject: `New enquiry (${topic}) — ${name || email}`,
+        subject: `New enquiry (${topic}) - ${name || email}`,
         html: notificationHtml(topic, name, email, message),
       },
       // Auto-reply to visitor
