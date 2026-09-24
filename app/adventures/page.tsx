@@ -123,7 +123,7 @@ export default function AdventuresPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex h-[100svh] min-h-[560px] flex-col justify-end overflow-hidden">
+      <section className="relative flex h-screen min-h-[560px] flex-col justify-end overflow-hidden">
         <Image
           src="/images/adventures/Peru_1.JPG"
           alt="Sunset over the Amazon river, Peru"

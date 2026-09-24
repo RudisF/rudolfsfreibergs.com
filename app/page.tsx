@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero: video unchanged ─────────────────────────────────────── */}
-      <section className="relative flex h-[100svh] min-h-[560px] flex-col justify-end overflow-hidden bg-black">
+      <section className="relative flex h-screen min-h-[560px] flex-col justify-end overflow-hidden bg-black">
         <HeroVideo
           src="/images/about/Hero_video/Rudolfsfreibergs.webm"
           poster="/images/about/Nepal_Rudolfs_Freibergs.JPG"
