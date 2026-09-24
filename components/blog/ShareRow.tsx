@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const chip =
-  "rounded-full border border-rule px-3 py-1 font-mono text-xs uppercase tracking-widest text-stone transition-colors hover:border-stone hover:text-ink";
+  "min-h-[36px] border border-ink/40 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-stone transition-colors hover:border-ink hover:text-ink";
 
 export default function ShareRow({ title }: { title: string }) {
   const [copied, setCopied] = useState(false);
@@ -32,7 +32,7 @@ export default function ShareRow({ title }: { title: string }) {
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <span className="font-mono text-xs uppercase tracking-widest text-stone">Share</span>
+      <span className="meta text-stone">Share</span>
       <button type="button" onClick={() => openShare("x")} className={chip}>
         X
       </button>

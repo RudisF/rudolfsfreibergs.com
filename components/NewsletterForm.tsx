@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import Button from "@/components/ui/Button";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -27,29 +26,35 @@ export default function NewsletterForm() {
 
   if (status === "success") {
     return (
-      <p className="font-sans text-sm text-stone">
+      <p className="text-sm font-semibold text-on-sand">
         You&apos;re on the list. Expect real stories, not noise.
       </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:items-start">
-      <input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="your@email.com"
-        disabled={status === "loading"}
-        className="h-12 flex-1 rounded-sm border border-rule bg-transparent px-4 text-sm text-paper placeholder:text-stone focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-50"
-      />
-      <Button type="submit" variant="primary" size="md" disabled={status === "loading"}>
-        {status === "loading" ? "Subscribing…" : "Subscribe"}
-      </Button>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+      <div className="flex">
+        <label htmlFor="newsletter-email" className="sr-only">
+          Email
+        </label>
+        <input
+          id="newsletter-email"
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="your@email.com"
+          disabled={status === "loading"}
+          className="h-[52px] min-w-0 flex-1 border border-[#151515] bg-transparent px-4 text-[15px] text-[#151515] placeholder:text-on-sand/70 focus:outline-none focus:ring-2 focus:ring-navy disabled:opacity-50"
+        />
+        <button type="submit" className="btn-navy" disabled={status === "loading"}>
+          {status === "loading" ? "Subscribing…" : "Subscribe"}
+        </button>
+      </div>
 
       {status === "error" && (
-        <p className="text-xs text-red-400 sm:col-span-2">
+        <p className="text-sm font-semibold text-[#7a1d12]">
           Something went wrong - please try again.
         </p>
       )}

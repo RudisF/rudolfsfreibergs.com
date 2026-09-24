@@ -2,7 +2,6 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import Button from "@/components/ui/Button";
 
 const TOPICS = [
   { label: "Speaking", slug: "speaking" },
@@ -18,15 +17,16 @@ type Status = "idle" | "loading" | "success" | "error";
 type SubStatus = "idle" | "loading" | "success" | "error";
 
 const inputClass =
-  "w-full rounded-sm border border-rule bg-paper px-4 text-ink placeholder:text-stone focus:outline-none focus:ring-2 focus:ring-accent";
+  "w-full border border-[#151515] bg-cream/35 px-4 text-base text-[#151515] placeholder:text-on-sand/70 focus:outline-none focus:ring-2 focus:ring-navy";
+
+const labelClass = "meta text-[#151515]";
 
 export default function ContactForm({ initialTopic }: { initialTopic?: string }) {
   const params = useSearchParams();
   // Read ?topic from the URL; fall back to the server-provided value so the
   // server render and first client render agree (no hydration mismatch).
   const slug = params.get("topic") ?? initialTopic;
-  const preselected: TopicLabel =
-    TOPICS.find((t) => t.slug === slug)?.label ?? "Speaking";
+  const preselected: TopicLabel = TOPICS.find((t) => t.slug === slug)?.label ?? "Speaking";
 
   const [topic, setTopic] = useState<TopicLabel>(preselected);
   const [name, setName] = useState("");
@@ -61,7 +61,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
             ? "Too many messages - please try again a bit later."
             : res.status >= 500
               ? "Something went wrong on my end - please try again shortly."
-              : "Please double-check your details and try again.",
+              : "Please double-check your details and try again."
         );
       }
     } catch {
@@ -91,28 +91,32 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
   // ── Success state ──────────────────────────────────────────────────────────
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-rule p-8 md:p-10">
-        <h2 className="font-serif text-4xl font-medium text-ink">Message received.</h2>
-        <p className="mt-3 text-base leading-relaxed text-stone">
+      <div className="bg-navy p-8 text-cream md:p-10">
+        <h2 className="display text-5xl">
+          Message <span className="text-gold">received.</span>
+        </h2>
+        <p className="mt-4 text-lg leading-relaxed text-on-navy">
           Thanks for reaching out - I&apos;ll get back to you soon.
         </p>
 
-        <label className="mt-8 flex cursor-pointer items-center gap-3 text-sm text-ink">
+        <label className="mt-8 flex cursor-pointer items-center gap-3 text-base text-cream">
           <input
             type="checkbox"
             checked={subscribed}
             onChange={handleSubscribeToggle}
             disabled={subStatus === "loading" || subStatus === "success"}
-            className="h-4 w-4 shrink-0 accent-accent"
+            className="h-5 w-5 shrink-0 accent-gold"
           />
           Also subscribe me to field notes
         </label>
 
         {subStatus === "success" && (
-          <p className="mt-3 text-sm text-stone">You&apos;re on the list - no noise, just field notes.</p>
+          <p className="mt-3 text-sm text-on-navy">
+            You&apos;re on the list - no noise, just field notes.
+          </p>
         )}
         {subStatus === "error" && (
-          <p className="mt-3 text-sm text-red-600">Couldn&apos;t subscribe - please try again.</p>
+          <p className="mt-3 text-sm text-[#f27860]">Couldn&apos;t subscribe - please try again.</p>
         )}
       </div>
     );
@@ -122,7 +126,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
   const loading = status === "loading";
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       {/* Honeypot - hidden from people, often filled by bots */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label htmlFor="company">Company</label>
@@ -136,46 +140,46 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
         />
       </div>
 
-      {/* Name */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="font-mono text-xs uppercase tracking-widest text-stone">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          disabled={loading}
-          placeholder="Your name"
-          className={`h-12 ${inputClass} disabled:opacity-50`}
-        />
-      </div>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {/* Name */}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="name" className={labelClass}>
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            disabled={loading}
+            placeholder="Your name"
+            className={`h-[52px] ${inputClass} disabled:opacity-50`}
+          />
+        </div>
 
-      {/* Email */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="font-mono text-xs uppercase tracking-widest text-stone">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={loading}
-          placeholder="your@email.com"
-          className={`h-12 ${inputClass} disabled:opacity-50`}
-        />
+        {/* Email */}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className={labelClass}>
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
+            placeholder="your@email.com"
+            className={`h-[52px] ${inputClass} disabled:opacity-50`}
+          />
+        </div>
       </div>
 
       {/* Topic chips */}
       <fieldset className="flex flex-col gap-3">
-        <legend className="mb-1 font-mono text-xs uppercase tracking-widest text-stone">
-          What&apos;s this about?
-        </legend>
-        <div className="flex flex-wrap gap-3">
+        <legend className={`mb-1 ${labelClass}`}>What&apos;s this about?</legend>
+        <div className="flex flex-wrap gap-2">
           {TOPICS.map((t) => {
             const isActive = topic === t.label;
             return (
@@ -184,10 +188,10 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
                 key={t.label}
                 onClick={() => setTopic(t.label)}
                 aria-pressed={isActive}
-                className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
+                className={`min-h-[44px] border px-4 text-sm font-semibold transition-colors ${
                   isActive
-                    ? "border-accent bg-accent text-white"
-                    : "border-rule text-ink hover:border-stone"
+                    ? "border-navy bg-navy text-cream"
+                    : "border-[#151515] text-[#151515] hover:bg-cream/40"
                 }`}
               >
                 {t.label}
@@ -199,7 +203,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
 
       {/* Message */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="font-mono text-xs uppercase tracking-widest text-stone">
+        <label htmlFor="message" className={labelClass}>
           Message
         </label>
         <textarea
@@ -214,13 +218,13 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
         />
       </div>
 
-      {status === "error" && <p className="text-sm text-red-600">{errorMsg}</p>}
+      {status === "error" && <p className="text-sm font-semibold text-[#7a1d12]">{errorMsg}</p>}
 
       {/* Send */}
-      <div className="flex justify-end">
-        <Button type="submit" variant="primary" size="lg" disabled={loading}>
-          {loading ? "Sending…" : "Send"}
-        </Button>
+      <div>
+        <button type="submit" className="btn-navy" disabled={loading}>
+          {loading ? "Sending…" : "Send"} <span aria-hidden>→</span>
+        </button>
       </div>
     </form>
   );

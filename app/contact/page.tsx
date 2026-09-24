@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
-import Container from "@/components/ui/Container";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -10,53 +10,33 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const SOCIALS = [
-  { label: "Instagram", href: "https://www.instagram.com/rudolfs_freibergs/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/rudolfs-freibergs/" },
-  { label: "YouTube", href: "https://www.youtube.com/@rudolfsfreibergs2733" },
-];
-
-export default function ContactPage({
-  searchParams,
-}: {
-  searchParams: { topic?: string };
-}) {
+export default function ContactPage({ searchParams }: { searchParams: { topic?: string } }) {
   return (
-    <Container className="py-20 md:py-28">
-      {/* Heading */}
-      <div className="mx-auto max-w-2xl text-center">
-        <h1 className="font-serif font-medium text-ink" style={{ fontSize: "56px" }}>
-          Contact Rudolfs
+    <section className="grid grid-cols-1 bg-sand lg:min-h-[940px] lg:grid-cols-[620px_1fr]">
+      <div className="relative hidden min-h-[360px] lg:block">
+        <Image
+          src="/images/adventures/Nepal_2.jpg"
+          alt="Temple stairway, Nepal"
+          fill
+          priority
+          sizes="620px"
+          className="object-cover"
+        />
+      </div>
+      <div className="flex flex-col justify-center gap-7 px-5 py-14 md:px-[72px] md:py-16">
+        <h1 className="display text-[clamp(2.75rem,5vw,4.5rem)] text-[#151515]">
+          Where the <span className="text-gold-deep">conversation</span> starts
         </h1>
-        <p className="mt-4 text-base text-stone">
-          {"This isn't a business inquiry form. It's where the conversation starts. Tell me what brought you here - a story or idea that landed, a place you're curious about, a question you've been sitting with."}
+        <p className="max-w-[600px] text-lg leading-relaxed text-on-sand">
+          Tell me what brought you here - a story that landed, a place you&apos;re curious about, a
+          question you&apos;ve been sitting with.
         </p>
+        <div className="max-w-[720px]">
+          <Suspense fallback={null}>
+            <ContactForm initialTopic={searchParams.topic} />
+          </Suspense>
+        </div>
       </div>
-
-      {/* Form */}
-      <div className="mx-auto mt-12 max-w-2xl">
-        <Suspense fallback={null}>
-          <ContactForm initialTopic={searchParams.topic} />
-        </Suspense>
-      </div>
-
-      {/* Elsewhere */}
-      <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-stone">
-        Or find me elsewhere -{" "}
-        {SOCIALS.map((s, i) => (
-          <span key={s.label}>
-            <a
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink underline-offset-4 hover:underline"
-            >
-              {s.label}
-            </a>
-            {i < SOCIALS.length - 1 ? " · " : "."}
-          </span>
-        ))}
-      </p>
-    </Container>
+    </section>
   );
 }

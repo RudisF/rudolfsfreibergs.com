@@ -4,11 +4,54 @@
 
 @layer base {
   html {
-    @apply bg-paper text-ink;
+    @apply bg-navy text-cream;
   }
 
   body {
     @apply font-sans antialiased;
+  }
+
+  /* Nothing on the site is set in italic. */
+  em,
+  i,
+  cite,
+  dfn,
+  var,
+  address {
+    font-style: normal;
+  }
+
+  ::selection {
+    background: #ba9b5f;
+    color: #050917;
+  }
+}
+
+/* ── Shared type and buttons (B:Engage system) ────────────────────────────── */
+
+@layer components {
+  .display {
+    @apply font-black uppercase leading-[0.92] tracking-[-0.045em];
+  }
+
+  .meta {
+    @apply text-[13px] font-bold uppercase tracking-[0.16em];
+  }
+
+  .btn {
+    @apply inline-flex min-h-[52px] shrink-0 items-center gap-3.5 whitespace-nowrap border px-6 text-[13px] font-extrabold uppercase tracking-[0.16em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-gold;
+  }
+
+  .btn-gold {
+    @apply btn border-gold bg-gold text-navy hover:bg-cream hover:border-cream;
+  }
+
+  .btn-line {
+    @apply btn border-cream/55 text-cream hover:border-gold hover:text-gold;
+  }
+
+  .btn-navy {
+    @apply btn border-navy bg-navy text-cream hover:bg-navy-2 hover:text-gold;
   }
 }
 

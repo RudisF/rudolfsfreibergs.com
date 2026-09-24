@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Container from "@/components/ui/Container";
-import WorkCarousel, { type Slide } from "./WorkCarousel";
+import Image from "next/image";
+import PhotoCarousel, { type WorkPhoto } from "./PhotoCarousel";
 
 const TITLE = "Work - B2B marketing, account management, GTM and AI";
 const DESCRIPTION =
@@ -42,52 +41,36 @@ const personJsonLd = {
   knowsAbout: ["B2B marketing", "Account management", "Go-to-market strategy", "AI automation"],
 };
 
-const SLIDES: Slide[] = [
+const PHOTOS: WorkPhoto[] = [
   {
-    num: "€50k",
-    label: "B2B marketing",
-    text: "One dinner, nine guests. A €50k contract inside two months - and a €500M company getting in touch eight months later.",
-    image: "/images/work/Zurich_Executive_Roundtable.png.JPG",
+    src: "/images/work/Zurich_Executive_Roundtable.png.JPG",
     alt: "Executive roundtable dinner in Zurich",
     caption: "Executive roundtable, Zurich",
+    position: "50% 62%",
   },
   {
-    num: "93",
-    label: "Account management - NPS",
-    text: "An account management department built from zero to 130+ clients worldwide. Clients scored it 93 on a scale from -100 to 100.",
-    image: "/images/work/Sweden_Executive_Roundtable.png.JPG",
+    src: "/images/work/Sweden_Executive_Roundtable.png.JPG",
     alt: "Executive roundtable in Sweden",
     caption: "Executive roundtable, Sweden",
+    position: "50% 55%",
   },
   {
-    num: "€2.5M",
-    label: "Go-to-market",
-    text: "6,000 old delivery tasks, read and turned into a new pitch. Outbound leads went from €1M to €2.5M in one year.",
-    image: "/images/work/GTM_Latvia.png",
-    alt: "Go-to-market session in Latvia",
-    caption: "Go-to-market session, Latvia",
+    src: "/images/work/GTM_Latvia.png",
+    alt: "Go-to-market session in London",
+    caption: "Go-to-market session, London",
+    position: "50% 35%",
   },
   {
-    num: "20,000",
-    label: "AI automation",
-    text: "An AI agent read 20,000 dead CRM contacts and wrote each one a WhatsApp message from what it found.",
-    image: "/images/work/Dubai_Executive_Roundtable.png",
+    src: "/images/work/Dubai_Executive_Roundtable.png",
     alt: "Executive roundtable in Dubai",
     caption: "Executive roundtable, Dubai",
+    // Anchored left so the person on the far left is never cropped.
+    position: "0% 50%",
   },
 ];
 
-// Trimmed ink-on-transparent logos. Sizes balance visual weight (equal area),
-// not equal height, so wide wordmarks and square marks read the same size.
-const LOGOS = [
-  { name: "PUMA", src: "/images/clients/ink/puma.png", w: 66, h: 51 },
-  { name: "The MET Store", src: "/images/clients/ink/met.png", w: 51, h: 67 },
-  { name: "Läderach", src: "/images/clients/ink/laderach.png", w: 123, h: 28 },
-  { name: "Haypp Group", src: "/images/clients/ink/haypp.png", w: 192, h: 18 },
-  { name: "Spice", src: "/images/clients/ink/spice.png", w: 98, h: 35 },
-];
-
-const serif = { fontFamily: "var(--font-instrument-serif), Georgia, serif" };
+const PITCH =
+  "A B2B practice that engages buyers on a human level. Fractional CMO for B2B software, SaaS and commerce companies: ABM, outbound engines and marketing operations.";
 
 export default function WorkPage() {
   return (
@@ -97,64 +80,47 @@ export default function WorkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
 
-      <Container className="py-16 md:py-24">
-        <div className="grid grid-cols-1 items-center gap-y-14 lg:grid-cols-12 lg:gap-x-6">
-          <div className="flex flex-col gap-6 lg:col-span-7 lg:gap-9">
-            <p className="text-[13px] text-ink/60 md:text-[15px]">
-              B2B marketing, account management, GTM and AI
-            </p>
-            <h1
-              className="font-normal leading-[0.98] tracking-[-0.02em]"
-              style={{ ...serif, fontSize: "clamp(3rem, 7vw, 6.5rem)" }}
-            >
-              Most deals are decided before the first call. I work on that part.
-            </h1>
-            <p className="max-w-[560px] text-base leading-relaxed text-ink/75 md:text-[19px]">
-              {DESCRIPTION}
-            </p>
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
-              <a
-                href="https://b2b-engagement.com/"
-                className="inline-flex min-h-[52px] items-center justify-center rounded-sm bg-accent px-7 text-base font-medium text-paper transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-accent"
-              >
-                Work with me at B:Engage
-              </a>
-              <Link
-                href="/contact"
-                className="text-center text-base underline underline-offset-[6px] transition-colors hover:text-accent sm:text-left"
-              >
-                Or write to me here
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-4 lg:col-start-9">
-            <WorkCarousel slides={SLIDES} />
-          </div>
+      {/* One panel. Desktop: 2x2 photos left, text right. Phone: text first, carousel below. */}
+      <section className="grid grid-cols-1 lg:min-h-[900px] lg:grid-cols-[780px_1fr]">
+        <div className="hidden grid-cols-2 grid-rows-2 gap-[3px] bg-navy lg:grid">
+          {PHOTOS.map((ph) => (
+            <figure key={ph.src} className="relative m-0 overflow-hidden">
+              <Image
+                src={ph.src}
+                alt={ph.alt}
+                fill
+                sizes="390px"
+                className="object-cover"
+                style={{ objectPosition: ph.position }}
+              />
+              <figcaption className="absolute bottom-0 left-0 bg-navy/80 px-3.5 py-2 text-xs font-semibold text-cream">
+                {ph.caption}
+              </figcaption>
+            </figure>
+          ))}
         </div>
-      </Container>
 
-      <section aria-label="Clients" className="border-y border-ink/10">
-        <Container className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:gap-14">
-          <p className="text-[13px] leading-normal text-ink/60 md:w-[180px] md:shrink-0 md:text-sm">
-            Some of the 130+ accounts I&apos;ve looked after
+        <div className="flex flex-col justify-center gap-8 bg-navy px-5 pb-10 pt-14 md:px-16 lg:py-[72px]">
+          <p
+            className="text-[40px] font-black leading-none tracking-[-0.02em] text-cream md:text-[44px]"
+            aria-label="B:Engage"
+          >
+            B<span className="text-gold">:</span>Engage
           </p>
-          <ul className="flex flex-1 flex-wrap items-center gap-x-10 gap-y-8 md:justify-between">
-            {LOGOS.map((l) => (
-              <li key={l.name}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={l.src}
-                  alt={l.name}
-                  width={l.w}
-                  height={l.h}
-                  loading="lazy"
-                  className="max-w-none opacity-70 transition-opacity duration-300 hover:opacity-100"
-                />
-              </li>
-            ))}
-          </ul>
-        </Container>
+          <h1 className="display text-[clamp(2.5rem,4.5vw,4rem)] text-cream">
+            Most deals are decided <span className="text-gold">before the first call.</span> I work
+            on that part.
+          </h1>
+          <p className="max-w-[560px] text-lg leading-relaxed text-on-navy md:text-[19px]">
+            {PITCH}
+          </p>
+          <a href="https://b2b-engagement.com/" className="btn-gold self-start">
+            Explore B:Engage <span aria-hidden>→</span>
+          </a>
+        </div>
+        <div className="lg:hidden">
+          <PhotoCarousel photos={PHOTOS} />
+        </div>
       </section>
     </>
   );

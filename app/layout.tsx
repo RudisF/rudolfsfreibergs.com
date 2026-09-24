@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -7,21 +7,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ReducedMotionProvider } from "@/components/providers/ReducedMotionProvider";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -75,11 +65,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
-    >
-      <body className="flex min-h-screen flex-col">
+    <html lang="en" className={inter.variable}>
+      <body className="flex min-h-screen flex-col bg-navy text-cream">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-M3HE08QXEX"
           strategy="afterInteractive"

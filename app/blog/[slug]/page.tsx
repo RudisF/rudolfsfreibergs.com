@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const post = getPostBySlug(params.slug);
   if (!post) return {};
   const ogUrl = `/blog/${post.slug}/og?title=${encodeURIComponent(
-    post.title,
+    post.title
   )}&rt=${encodeURIComponent(post.readingTime)}`;
   return {
     title: post.title,
@@ -81,7 +81,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     author: { "@type": "Person", name: post.author },
     url: `${base}/blog/${post.slug}`,
     image: `${base}/blog/${post.slug}/og?title=${encodeURIComponent(
-      post.title,
+      post.title
     )}&rt=${encodeURIComponent(post.readingTime)}`,
   };
 
@@ -93,68 +93,57 @@ export default async function PostPage({ params }: { params: { slug: string } })
       />
       <ReadingProgress />
 
-      <Container className="py-16 md:py-24">
-        <article className="mx-auto max-w-2xl">
-          {/* Header */}
-          <Link
-            href="/blog"
-            className="font-mono text-xs uppercase tracking-widest text-stone transition-colors hover:text-ink"
-          >
+      <header className="bg-navy px-5 pb-12 pt-12 md:px-14 md:pb-16 md:pt-16">
+        <div className="mx-auto max-w-4xl">
+          <Link href="/blog" className="meta text-gold transition-colors hover:text-cream">
             ← Blog
           </Link>
+          <h1 className="display mt-6 text-[clamp(2.5rem,6vw,4.5rem)] text-cream">{post.title}</h1>
+          <p className="meta mt-6 text-on-navy">
+            <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingTime} ·{" "}
+            {post.author}
+          </p>
+        </div>
+      </header>
 
-          <h1
-            className="mt-6 font-serif font-medium leading-tight text-ink"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}
-          >
-            {post.title}
-          </h1>
-
-          <div className="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-widest text-stone">
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <span aria-hidden>·</span>
-            <span>{post.readingTime}</span>
-            <span aria-hidden>·</span>
-            <span>{post.author}</span>
-          </div>
-
-          {/* Body */}
-          <div className="prose prose-ink mt-10">
-            <Content />
-          </div>
-
-          {/* Share */}
-          <div className="mt-12 border-t border-rule/40 pt-6">
-            <ShareRow title={post.title} />
-          </div>
-        </article>
-
-        {/* Read next */}
-        {readNext.length > 0 && (
-          <div className="mx-auto mt-16 max-w-4xl">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-stone">Read next</h2>
-            <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {readNext.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/blog/${p.slug}`}
-                  className="group rounded-2xl border border-rule p-6 transition-colors hover:border-stone"
-                >
-                  <div className="font-mono text-xs uppercase tracking-widest text-stone">
-                    {formatDate(p.date)} · {p.readingTime}
-                  </div>
-                  <h3 className="mt-2 font-serif text-xl font-medium leading-snug text-ink transition-colors group-hover:text-accent">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-stone">
-                    {p.description}
-                  </p>
-                </Link>
-              ))}
+      <div className="bg-paper text-ink">
+        <Container className="py-14 md:py-20">
+          <article className="mx-auto max-w-2xl">
+            <div className="prose prose-ink prose-lg">
+              <Content />
             </div>
-          </div>
-        )}
-      </Container>
+
+            <div className="mt-12 border-t border-ink/15 pt-6">
+              <ShareRow title={post.title} />
+            </div>
+          </article>
+
+          {readNext.length > 0 && (
+            <div className="mx-auto mt-16 max-w-4xl">
+              <h2 className="meta text-stone">Read next</h2>
+              <div className="mt-4 grid grid-cols-1 gap-[3px] sm:grid-cols-2">
+                {readNext.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/blog/${p.slug}`}
+                    className="group bg-navy p-6 text-cream transition-colors hover:bg-navy-2"
+                  >
+                    <div className="meta text-gold">
+                      {formatDate(p.date)} · {p.readingTime}
+                    </div>
+                    <h3 className="mt-2 text-xl font-extrabold leading-snug transition-colors group-hover:text-gold">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-on-navy">
+                      {p.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </Container>
+      </div>
     </>
   );
 }

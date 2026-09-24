@@ -1,280 +1,198 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
-import Eyebrow from "@/components/ui/Eyebrow";
 import HeroVideo from "@/components/ui/HeroVideo";
-import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-function s(i: number): CSSProperties {
-  return { animationDelay: `${i * 80}ms` };
+function Tile({
+  href,
+  image,
+  alt,
+  position,
+  title,
+  line,
+  big = false,
+  sizes,
+}: {
+  href: string;
+  image: string;
+  alt: string;
+  position: string;
+  title: string;
+  line: string;
+  big?: boolean;
+  sizes: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative block h-full min-h-[420px] overflow-hidden text-cream"
+    >
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        sizes={sizes}
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        style={{ objectPosition: position }}
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-navy/0 from-45% to-navy/90"
+        aria-hidden
+      />
+      <div
+        className={`absolute inset-x-6 bottom-6 flex flex-col gap-3 ${big ? "md:inset-x-14 md:bottom-14" : "md:inset-x-9 md:bottom-9"}`}
+      >
+        <h3 className={`display ${big ? "text-5xl md:text-8xl" : "text-5xl md:text-[52px]"}`}>
+          {title}{" "}
+          <span className="text-gold transition-transform group-hover:translate-x-1">→</span>
+        </h3>
+        <p className={`max-w-[520px] leading-relaxed ${big ? "text-lg" : "text-base"}`}>{line}</p>
+      </div>
+    </Link>
+  );
 }
-
-const identities = [
-  {
-    id: "boundaries",
-    eyebrow: "Pushing boundaries",
-    title: "Adventures",
-    description:
-      "Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out - to clear my head and meet whoever I am when no one's watching.",
-    image: "/images/home/Rudolfs_Freibergs_3.jpg.jpg",
-    href: "/adventures",
-  },
-  {
-    id: "building",
-    eyebrow: "Building things",
-    title: "Work",
-    description:
-      "Eight years managing IT and marketing accounts for demanding clients. The work is technical; the stories it generates are deeply human.",
-    image: "/images/home/Rudolfs_Freibergs_1.jpg",
-    href: "/work",
-  },
-  {
-    id: "inward",
-    eyebrow: "Going inward",
-    title: "Soulful experiences",
-    description:
-      "Sauna ceremonies, singing bowls, and the quiet between thoughts. A counterweight to the speed of everything else.",
-    image: "/images/home/Rudolfs_Freibergs_2.jpg.jpg",
-    href: "/soulful",
-  },
-] as const;
 
 export default function HomePage() {
   return (
     <>
-      {/* ── Section 1: Hero ──────────────────────────────────────────── */}
-      {/*
-        Z-index stacking order (bottom to top):
-          z-0  — <video>  background video
-          z-10 — overlay  dark semi-transparent layer (adjust bg-black/35 opacity here)
-          z-20 — text     all readable content
-      */}
-      <section className="relative overflow-hidden h-screen">
-        {/* z-0: background video */}
+      {/* ── Hero: video unchanged ─────────────────────────────────────── */}
+      <section className="relative flex min-h-[640px] flex-col justify-end overflow-hidden bg-black h-[100svh]">
         <HeroVideo
           src="/images/about/Hero_video/Rudolfsfreibergs.webm"
           poster="/images/about/Nepal_Rudolfs_Freibergs.JPG"
         />
-
-        {/* z-10: dark overlay — change /35 to adjust darkness (30–40% recommended) */}
         <div
-          className="pointer-events-none absolute inset-0 z-10 bg-black/35"
-          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-navy/15 from-30% to-navy/90"
+          aria-hidden
         />
 
-        {/* z-20: text content — left half on desktop, full-width on mobile */}
-        <div className="relative z-20 mx-auto max-w-content px-6 py-20 md:py-28">
-          <div className="grid md:grid-cols-2 md:gap-16">
-            {/* Text column */}
-            <div className="flex flex-col gap-5">
-              <p
-                className="animate-fade-up font-mono text-xs font-medium uppercase tracking-widest text-white/60"
-                style={s(0)}
-              >
-                Est. Riga, Latvia
-              </p>
-
-              <h1
-                className="animate-fade-up font-serif leading-[1.05] text-white"
-                style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 500, ...s(1) }}
-              >
-                No noise. Travel stories and personal reflections
-              </h1>
-
-              <p className="animate-fade-up text-base leading-relaxed text-white/75" style={s(2)}>
-                A traveler with 8 years of experience across IT and marketing, I write to turn raw
-                internal moments into human-first stories where readers finally feel understood.
-              </p>
-
-              <div className="animate-fade-up flex flex-wrap gap-4" style={s(3)}>
-                <Button href="/contact" variant="primary">
-                  Get in touch
-                </Button>
-                <Button
-                  href="/about"
-                  variant="ghost"
-                  className="!border-white/40 !text-white hover:!bg-white/15"
-                >
-                  About Rudolfs
-                </Button>
-              </div>
-            </div>
+        <div className="relative z-20 flex flex-col gap-7 px-5 pb-12 md:px-14 md:pb-16">
+          <h1 className="display animate-fade-up text-[clamp(2.75rem,7vw,6.25rem)] text-cream">
+            No noise.
+            <br />
+            <span className="text-gold">Travel stories</span> and
+            <br />
+            personal reflections
+          </h1>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
+            <p className="max-w-[640px] text-lg leading-relaxed text-cream md:text-xl">
+              A traveler with 8 years of experience across IT and marketing, I write to turn raw
+              internal moments into human-first stories where readers finally feel understood.
+            </p>
+            <Link href="/adventures#mauritania" className="btn-gold self-start md:self-auto">
+              Start with the Sahara <span aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Section 2: Documentary ───────────────────────────────────── */}
-      <section className="border-t border-rule">
-        <div className="mx-auto max-w-content px-6 py-20 md:py-28">
-          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            {/* Left: tall portrait, full bleed */}
-            <div
-              className="animate-fade-up relative aspect-[2/3] overflow-hidden rounded-2xl"
-              style={s(3)}
-            >
-              <Image
-                src="/images/home/Rudolfs_Freibergs_3.jpg.jpg"
-                alt="Yangtze River expedition"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right: text */}
-            <div className="flex flex-col gap-6">
-              <div className="animate-fade-up" style={s(0)}>
-                <SectionHeader
-                  eyebrow="Video series"
-                  title="It&apos;s about the journey, not the destination"
-                />
-              </div>
-
-              <div
-                className="animate-fade-up max-w-xl space-y-4 text-base leading-relaxed text-stone"
-                style={s(1)}
-              >
-                <p>
-                  The destination has never been the point. The places get chosen by something
-                  quieter than logic - a feeling, a voice that says go there, and I trust it.
-                </p>
-                <p>
-                  First footages has been sitting on hard drives since 2017. High passes in Nepal,
-                  dust in Mauritania, deep trails in the Peruvian Amazon. I&apos;m editing years of
-                  movement into a YouTube series - slowly, because condensing chaos into a story
-                  that respects your time takes restraint. The final cut isn&apos;t ready. The
-                  channel is.
-                </p>
-              </div>
-
-              <div className="animate-fade-up" style={s(2)}>
-                <Button
-                  href="https://www.youtube.com/@rudolfsfreibergs2733"
-                  target="_blank"
-                  rel="noopener"
-                  variant="primary"
-                >
-                  Get notified on YouTube
-                </Button>
-              </div>
-            </div>
+      {/* ── About (merged from /about) ────────────────────────────────── */}
+      <section
+        aria-labelledby="about-heading"
+        className="grid grid-cols-1 bg-sand lg:grid-cols-[760px_1fr]"
+      >
+        <div className="relative min-h-[420px] lg:min-h-[800px]">
+          <Image
+            src="/images/about/Nepal_Rudolfs_Freibergs.JPG"
+            alt="Rudolfs in the Himalayas, Nepal"
+            fill
+            sizes="(min-width: 1024px) 760px, 100vw"
+            className="object-cover"
+            style={{ objectPosition: "50% 40%" }}
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-7 px-5 py-16 md:px-[72px] md:py-20">
+          <h2
+            id="about-heading"
+            className="display text-[clamp(2.75rem,5vw,4.5rem)] text-[#151515]"
+          >
+            The man behind <span className="text-gold-deep">the stories</span>
+          </h2>
+          <div className="flex max-w-[600px] flex-col gap-5 text-lg leading-relaxed text-on-sand">
+            <p>
+              My days run on the high-demand rhythms of corporate IT, B2B marketing and customer
+              engagement. To stay whole, I balance that intensity with quieter practices: sound
+              therapy and traditional sauna ceremonies.
+            </p>
+            <p>
+              Sitting in meditation at Kopan Monastery in Nepal, I decided to bring these stories
+              and notes into public view.
+            </p>
+            <p>
+              Once a year I leave the context behind and go somewhere that does not care about my
+              titles. No formula. No tidy lessons.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── Section 3: About preview (flipped) ───────────────────────── */}
-      <section className="border-t border-rule bg-ink">
-        <div className="mx-auto max-w-content px-6 py-20 md:py-28">
-          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            {/* Left: image */}
-            <div
-              className="animate-fade-up relative aspect-[4/3] overflow-hidden rounded-2xl md:order-2"
-              style={s(0)}
-            >
-              <Image
-                src="/images/home/Rudolfs_Freibergs_1.jpg"
-                alt="Rudolfs speaking"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right: text */}
-            <div className="flex flex-col gap-6 md:order-1">
-              <div className="animate-fade-up" style={s(1)}>
-                <SectionHeader
-                  eyebrow="About Rudolfs"
-                  title="Stories worth telling"
-                  className="[&_h2]:text-paper [&_p]:text-stone"
-                />
-              </div>
-
-              <div
-                className="animate-fade-up max-w-xl space-y-4 text-base leading-relaxed text-stone"
-                style={s(2)}
-              >
-                <p>
-                  My days run on the high-demand rhythms of corporate IT, B2B marketing and
-                  customer engagement - an environment that asks you to build a relationship,
-                  optimise for output and scale. To stay whole, I balance that intensity with
-                  quieter practices: sound therapy, traditional sauna ceremonies. Not a wellness
-                  escape. A way to keep your feet on the ground while the world moves at breakneck
-                  speed.
-                </p>
-                <p>
-                  Sitting in meditation at Kopan Monastery in Nepal, I decided to bring these
-                  stories and notes into public view. I write about this tension because I know
-                  what it feels like to chase ambition without losing your soul in the process.
-                </p>
-              </div>
-
-              {/* CTA with diagonal accent rule behind it */}
-              <div className="animate-fade-up relative mt-2 self-start" style={s(3)}>
-                <div
-                  className="absolute top-1/2 left-0 h-[2px] bg-accent"
-                  style={{ width: "60%", opacity: 0.6, transform: "rotate(-8deg) translateY(-50%)" }}
-                  aria-hidden
-                />
-                <Button href="/about" variant="link" className="relative text-accent">
-                  Keep reading →
-                </Button>
-              </div>
-            </div>
+      {/* ── M-shape ───────────────────────────────────────────────────── */}
+      <section aria-labelledby="mshape-heading" className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="flex flex-col justify-center gap-7 bg-navy px-5 py-16 md:px-14 md:py-20">
+          <h2 id="mshape-heading" className="display text-[clamp(3rem,6vw,5.5rem)] text-cream">
+            The <span className="whitespace-nowrap text-gold">M-shape</span>
+          </h2>
+          <div className="flex max-w-[600px] flex-col gap-5 text-lg leading-relaxed text-on-navy">
+            <p>
+              The T-shaped professional has a broad base of skills and one deep area of expertise.
+              The M-shape has more than one peak.
+            </p>
+            <p>
+              One of mine sits in high-stakes execution: accounts and marketing strategy. The other
+              is anchored in sauna ceremonies, sound therapy and meditation. The stillness of one
+              feeds the other.
+            </p>
           </div>
+        </div>
+        <div className="relative min-h-[360px] lg:min-h-[720px]">
+          <Image
+            src="/images/about/Kopan_Monastery.jpeg"
+            alt="Group at Kopan Monastery, Nepal"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
       </section>
 
-      {/* ── Section 4: Three identities ──────────────────────────────── */}
-      <section className="border-t border-rule">
-        <div className="mx-auto max-w-content px-6 py-20 md:py-28">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {identities.map(({ id, eyebrow, title, description, image, href }) => (
-              <article
-                key={id}
-                className="flex flex-col gap-4 rounded-2xl border border-rule bg-paper p-6"
-              >
-                <div className="flex-1 space-y-2">
-                  <Eyebrow>{eyebrow}</Eyebrow>
-                  <h3
-                    className="font-serif font-semibold leading-snug text-ink"
-                    style={{ fontSize: "28px" }}
-                  >
-                    {title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone">{description}</p>
-                </div>
-
-                <div className="flex items-end justify-between gap-4 pt-2">
-                  <Link
-                    href={href}
-                    className="font-sans text-sm font-medium text-accent underline-offset-4 hover:underline"
-                  >
-                    Read more →
-                  </Link>
-
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-rule">
-                    <Image
-                      src={image}
-                      alt={title}
-                      fill
-                      loading="lazy"
-                      sizes="80px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+      {/* ── Three worlds ──────────────────────────────────────────────── */}
+      <section
+        aria-label="Explore"
+        className="grid grid-cols-1 lg:h-[900px] lg:grid-cols-[2fr_1fr]"
+      >
+        <Tile
+          href="/adventures"
+          image="/images/adventures/Mauritania_Main.JPG"
+          alt="Riding the iron ore train at sunset, Mauritania"
+          position="50% 55%"
+          title="Adventures"
+          line="Places chosen by a feeling, not a destination. Once a year I go fully solo where the map runs out."
+          big
+          sizes="(min-width: 1024px) 66vw, 100vw"
+        />
+        <div className="grid grid-rows-2">
+          <Tile
+            href="/work"
+            image="/images/home/Rudolfs_Freibergs_1.jpg"
+            alt="Rudolfs speaking to a lecture hall"
+            position="35% 50%"
+            title="Work"
+            line="Eight years managing IT and marketing accounts for demanding clients."
+            sizes="(min-width: 1024px) 33vw, 100vw"
+          />
+          <Tile
+            href="/soulful"
+            image="/images/soulful/Sauna.jpg"
+            alt="Sauna ceremony"
+            position="50% 30%"
+            title="Soulful"
+            line="Sauna ceremonies, singing bowls and the quiet between thoughts."
+            sizes="(min-width: 1024px) 33vw, 100vw"
+          />
         </div>
       </section>
     </>

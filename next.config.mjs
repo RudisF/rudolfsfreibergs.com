@@ -21,6 +21,10 @@ const withMDX = createMDX({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  async redirects() {
+    // About was merged into the home page.
+    return [{ source: "/about", destination: "/", permanent: true }];
+  },
 };
 
 export default withMDX(nextConfig);
