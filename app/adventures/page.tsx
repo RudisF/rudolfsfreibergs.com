@@ -123,7 +123,7 @@ export default function AdventuresPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[620px] flex-col justify-end overflow-hidden h-[88svh] max-h-[820px]">
+      <section className="relative flex h-[100svh] min-h-[560px] flex-col justify-end overflow-hidden">
         <Image
           src="/images/adventures/Peru_1.JPG"
           alt="Sunset over the Amazon river, Peru"
@@ -137,7 +137,7 @@ export default function AdventuresPage() {
           className="absolute inset-0 bg-gradient-to-b from-navy/20 from-35% to-navy/85"
           aria-hidden
         />
-        <div className="relative flex flex-col gap-6 px-5 pb-12 md:flex-row md:items-end md:justify-between md:gap-12 md:px-14 md:pb-[72px]">
+        <div className="relative flex flex-col gap-6 px-5 pb-28 md:flex-row md:items-end md:justify-between md:gap-12 md:px-14 md:pb-[72px]">
           <h1 className="display text-[clamp(3.25rem,7.5vw,7rem)] text-cream">
             <span className="md:whitespace-nowrap">Where the map</span>
             <br />

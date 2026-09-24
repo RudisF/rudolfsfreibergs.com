@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero: video unchanged ─────────────────────────────────────── */}
-      <section className="relative flex min-h-[640px] flex-col justify-end overflow-hidden bg-black h-[100svh]">
+      <section className="relative flex h-[100svh] min-h-[560px] flex-col justify-end overflow-hidden bg-black">
         <HeroVideo
           src="/images/about/Hero_video/Rudolfsfreibergs.webm"
           poster="/images/about/Nepal_Rudolfs_Freibergs.JPG"
@@ -70,7 +70,7 @@ export default function HomePage() {
           aria-hidden
         />
 
-        <div className="relative z-20 flex flex-col gap-7 px-5 pb-12 md:px-14 md:pb-16">
+        <div className="relative z-20 flex flex-col gap-7 px-5 pb-28 md:px-14 md:pb-16">
           <h1 className="display animate-fade-up text-[clamp(2.75rem,7vw,6.25rem)] text-cream">
             No noise.
             <br />
