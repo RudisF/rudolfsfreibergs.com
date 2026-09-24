@@ -2,11 +2,10 @@ import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 
 const SITE_LINKS = [
+  { href: "/", label: "About me" },
   { href: "/adventures", label: "Adventures" },
-  { href: "/work", label: "Work" },
-  { href: "/soulful", label: "Soulful experiences" },
-  { href: "/media", label: "Media" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Notes" },
+  { href: "/media", label: "Featured" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

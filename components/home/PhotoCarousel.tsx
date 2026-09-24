@@ -10,7 +10,7 @@ export type WorkPhoto = {
   position: string;
 };
 
-// Phone-only carousel for the Work page. Desktop shows the 2x2 grid instead.
+// Phone-only carousel for the "What I do" section on Home. Desktop shows the 2x2 grid instead.
 export default function PhotoCarousel({ photos }: { photos: WorkPhoto[] }) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);

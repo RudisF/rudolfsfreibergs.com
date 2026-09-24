@@ -6,10 +6,8 @@ import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/adventures", label: "Adventures" },
-  { href: "/work", label: "Work" },
-  { href: "/soulful", label: "Soulful" },
-  { href: "/media", label: "Media" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Notes" },
+  { href: "/media", label: "Featured" },
 ] as const;
 
 // Routes whose hero is a full-bleed image or video: the bar floats over it.

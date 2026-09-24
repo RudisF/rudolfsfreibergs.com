@@ -52,6 +52,8 @@ const personJsonLd = {
   name: "Rudolfs Freibergs",
   url: SITE_URL,
   jobTitle: "IT & Marketing Account Manager",
+  worksFor: { "@type": "Organization", name: "B:Engage", url: "https://b2b-engagement.com/" },
+  knowsAbout: ["B2B marketing", "Account management", "Go-to-market strategy", "AI automation"],
   sameAs: [
     "https://www.instagram.com/rudolfs_freibergs/",
     "https://www.linkedin.com/in/rudolfs-freibergs/",

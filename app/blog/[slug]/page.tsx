@@ -96,7 +96,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <header className="bg-navy px-5 pb-12 pt-12 md:px-14 md:pb-16 md:pt-16">
         <div className="mx-auto max-w-4xl">
           <Link href="/blog" className="meta text-gold transition-colors hover:text-cream">
-            ← Blog
+            ← Notes
           </Link>
           <h1 className="display mt-6 text-[clamp(2.5rem,6vw,4.5rem)] text-cream">{post.title}</h1>
           <p className="meta mt-6 text-on-navy">

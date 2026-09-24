@@ -23,7 +23,11 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   async redirects() {
     // About was merged into the home page.
-    return [{ source: "/about", destination: "/", permanent: true }];
+    return [
+      { source: "/about", destination: "/", permanent: true },
+      { source: "/work", destination: "/#work", permanent: true },
+      { source: "/soulful", destination: "/#soulful", permanent: true },
+    ];
   },
 };
 

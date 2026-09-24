@@ -4,7 +4,7 @@ import Link from "next/link";
 import { media, type MediaItem } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Media",
+  title: "Featured",
   description: "Podcasts, webinars, lectures, awards, and press featuring Rudolfs Freibergs.",
   alternates: { canonical: "/media" },
 };
@@ -66,7 +66,7 @@ export default function MediaPage() {
   return (
     <>
       <section className="flex flex-col gap-6 bg-navy px-5 pb-12 pt-14 md:flex-row md:items-end md:justify-between md:px-14 md:pt-16">
-        <h1 className="display text-[clamp(4rem,11.8vw,10.5rem)] text-cream">Media</h1>
+        <h1 className="display text-[clamp(4rem,11.8vw,10.5rem)] text-cream">Featured</h1>
         <p className="max-w-[420px] pb-3 text-xl leading-relaxed text-on-navy">
           Podcasts, webinars, lectures and press. A running record of conversations and appearances.
         </p>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getAllPosts, type PostMeta } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Notes",
   description:
     "Field notes - short, honest essays on ambition, adventure, technology, and staying grounded.",
   alternates: { canonical: "/blog" },
@@ -49,7 +49,7 @@ function Feature({ post }: { post: PostMeta }) {
         </h2>
         <p className="max-w-[560px] text-lg leading-relaxed text-on-navy">{post.description}</p>
         <span className="meta text-gold">
-          Read the post <span aria-hidden>→</span>
+          Read the note <span aria-hidden>→</span>
         </span>
       </div>
     </Link>
@@ -92,18 +92,18 @@ export default function BlogIndex({ searchParams }: { searchParams: { page?: str
   return (
     <>
       <section className="bg-navy px-5 pb-11 pt-14 md:px-14 md:pt-16">
-        <h1 className="display text-[clamp(4rem,11.8vw,10.5rem)] text-cream">Blog</h1>
+        <h1 className="display text-[clamp(4rem,11.8vw,10.5rem)] text-cream">Notes</h1>
       </section>
 
       {lead ? (
         <Feature post={lead} />
       ) : (
-        <p className="px-5 py-16 text-on-navy md:px-14">No posts yet.</p>
+        <p className="px-5 py-16 text-on-navy md:px-14">No notes yet.</p>
       )}
 
       {rest.length > 0 && (
         <section
-          aria-label="More posts"
+          aria-label="More notes"
           className="grid grid-cols-1 gap-[3px] bg-navy md:grid-cols-3"
         >
           {rest.map((p) => (
